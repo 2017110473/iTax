@@ -612,8 +612,4 @@ footer h6 {
   font-size: 3.5em;
 } 
 
-.side-img-r{
-    position: absolute;
-    right: 0;
-    z-index: -9;
-}
+
