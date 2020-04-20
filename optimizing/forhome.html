@@ -123,11 +123,10 @@
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
-                                    <button data-method="insurance" data_type="auto" type="button"
-                                        class="layui-btn layui-btn-primary layui-btn-xs"
-                                        style="margin-left:260px">计算社会保险</button>
+                                    <button data-method="myinsurance" data_type="auto" type="button"
+                                        class="layui-btn layui-btn-primary layui-btn-xs" style="margin-left:260px"
+                                        id="myinsurance">计算社会保险</button>
                                 </div>
-
                             </form>
                             <form class="layui-form" action="" lay-filter="example">
                                 <div class="input-item layui-form-item">
@@ -147,8 +146,9 @@
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
-                                    <button type="button" class="layui-btn layui-btn-primary layui-btn-xs"
-                                        style="margin-left:260px">计算社会保险</button>
+                                    <button data-method="mateinsurance" data_type="auto" type="button"
+                                        class="layui-btn layui-btn-primary layui-btn-xs" style="margin-left:260px"
+                                        id="mateinsurance">计算社会保险</button>
                                 </div>
 
                             </form>
@@ -156,22 +156,85 @@
 
                             <form class="layui-form" action="" lay-filter="example">
                                 <div class="layui-form-item">
-                                    <label class="input-label layui-form-label">专项扣除：</label>
+                                    <label class="input-label layui-form-label"
+                                        style="margin-left: 100px; font-weight: bolder;">专项扣除</label>
 
-                                    <div class="input-item layui-form-item">
-                                        <label class="input-label layui-form-label">家庭情况</label>
-                                        <div class="layui-input-block">
-                                            <input type="checkbox" name="[children]" title="子女教育">
-                                            <input type="checkbox" name="[house]" title="住房相关">
+                                    <form class="layui-form" action="" lay-filter="example">
+                                        <div class="select-item layui-form-item">
+                                            <label class="input-label layui-form-label">子女教育</label>
+                                            <div class="layui-input-block">
+                                                <select name="children" lay-filter="children">
+                                                    <option value="0" selected="">0个</option>
+                                                    <option value="1">1个</option>
+                                                    <option value="2">2个</option>
+                                                    <option value="3">3个</option>
+                                                    <option value="4">4个</option>
+                                                    <option value="5">5个</option>
+                                                </select>
+                                                <label class="input-label layui-form-label"
+                                                    style="font-size: 10px;">仅含学前教育与学历教育</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="input-item layui-form-item">
-                                        <label class="input-label layui-form-label">个人情况</label>
-                                        <div class="layui-input-block">
-                                            <input type="checkbox" name="[theold]" title="赡养老人">
-                                            <input type="checkbox" name="[education]" title="继续教育">
+                                    </form>
+                                    <form class="layui-form" action="" lay-filter="example">
+                                        <div class="select-item layui-form-item">
+                                            <label class="input-label layui-form-label">住房扣除</label>
+                                            <div class="layui-input-block">
+                                                <select name="house" lay-filter="house">
+                                                    <option value="0" selected="">无</option>
+                                                    <option value="1">房贷利息</option>
+                                                    <option value="2">在直辖市、省会、单列市租房</option>
+                                                    <option value="3">在人口超过100万城市租房</option>
+                                                    <option value="4">在人口少于100万城市租房</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
+                                    <form class="layui-form" action="" lay-filter="example">
+                                        <div class="select-item layui-form-item">
+                                            <label class="input-label layui-form-label">赡养老人</label>
+                                            <div class="layui-input-block">
+                                                <select name="theold" lay-filter="theold">
+                                                    <option value="0" selected="">无</option>
+                                                    <option value="1">双方都是独生子女</option>
+                                                    <option value="2">配偶是独生子女</option>
+                                                    <option value="3">我是独生子女</option>
+                                                </select>
+                                            </div>
+                                            <label class="input-label layui-form-label"
+                                                style="font-size: 10px;">不是独生子女，请尝试：</label>
+                                            <button data-method="theold" data-type="auto" type="button"
+                                                class="layui-btn layui-btn-primary layui-btn-xs"
+                                                style="margin-top: 8px; margin-left:-7px;" id="theold">输入扣除金额</button>
+                                        </div>
+
+                                    </form>
+                                    <form class="layui-form" action="" lay-filter="example">
+                                        <div class="select-item layui-form-item">
+                                            <label class="input-label layui-form-label">学历教育</label>
+                                            <div class="layui-input-block">
+                                                <select name="education" lay-filter="education">
+                                                    <option value="0" selected="">无</option>
+                                                    <option value="1">我</option>
+                                                    <option value="2">配偶</option>
+                                                    <option value="3">双方</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form class="layui-form" action="" lay-filter="example">
+                                        <div class="select-item layui-form-item">
+                                            <label class="input-label layui-form-label">技术教育</label>
+                                            <div class="layui-input-block">
+                                                <select name="education" lay-filter="education">
+                                                    <option value="0" selected="">无</option>
+                                                    <option value="1">我</option>
+                                                    <option value="2">配偶</option>
+                                                    <option value="3">双方</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </form>
                         </div>
@@ -260,6 +323,195 @@
     </footer>
 
 
+    <!--弹出框:我的社保-->
+    <div class="in-box" id="hidden-area-1" style="padding: 10px;">
+
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="select-item layui-form-item">
+                <label class="input-label layui-form-label">选择城市</label>
+                <div class="layui-input-block">
+                    <select name="kinds" lay-filter="KindofIncome">
+                        <option value="0" selected="">上海</option>
+                        <option value="1">西安</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <form class=" layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label" style="font-weight:bolder;">五险一金:</label>
+
+                <label class="layui-form-label" style="margin-left:-30px;">比例</label>
+                <label class="layui-form-label" style="margin-left:-50px;">基数</label>
+
+            </div>
+        </form>
+
+
+
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">养老</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">医疗</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">失业</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">公积金</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <!--弹出框:配偶社保-->
+    <div class="in-box" id="hidden-area-2" style="padding: 10px;">
+
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="select-item layui-form-item">
+                <label class="input-label layui-form-label">选择城市</label>
+                <div class="layui-input-block">
+                    <select name="kinds" lay-filter="KindofIncome">
+                        <option value="0" selected="">上海</option>
+                        <option value="1">西安</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <form class=" layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label" style="font-weight:bolder;">五险一金:</label>
+
+                <label class="layui-form-label" style="margin-left:-30px;">比例</label>
+                <label class="layui-form-label" style="margin-left:-50px;">基数</label>
+
+            </div>
+        </form>
+
+
+
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">养老</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">医疗</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">失业</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">公积金</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <!--弹出框:赡养老人扣除费用-->
+    <div class="in-box" id="hidden-area-3" style="padding: 10px;">
+
+        <form class=" layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">我的扣除费用</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 100px;">
+                    <label class="yuan-label">元</label>
+                    <label class="input-label layui-form-label" style="font-size: 10px;">非独生子女不超过1000/月</label>
+                </div>
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">配偶扣除费用</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 100px;">
+                    <label class="yuan-label">元</label>
+                    <label class="input-label layui-form-label" style="font-size: 10px;">非独生子女不超过1000/月</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -274,11 +526,85 @@
     <script src="../layui/layui.js" charset="utf-8"></script>
     <!-- Scripts Ends -->
     <script>
-        layui.use('form', function () {
-            var form = layui.form;
+        layui.use(['form', 'layer'], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
             form.render();
-        });   
+            $('#hidden-area-1').hide();
+            $('#hidden-area-2').hide();
+            $('#hidden-area-3').hide();
+
+
+            //触发事件
+            var active = {
+                myinsurance: function (othis) {
+                    layer.open({
+                        type: 1
+                        , title: '计算社会保险个人缴纳部分'
+                        , area: '460px;'
+                        , shade: 0.3
+                        , id: 'LAY_insurance' //防止重复弹出
+                        , content: $("#hidden-area-1")
+                        , btn: ['确定', '修改']
+                        , btnAlign: 'c' //按钮居中
+                        , yes: function () {
+                            layer.closeAll();
+                        }
+                    });
+                },
+                mateinsurance: function (othis) {
+                    layer.open({
+                        type: 1
+                        , title: '计算社会保险个人缴纳部分'
+                        , area: '460px;'
+                        , shade: 0.3
+                        , id: 'LAY_insurance' //防止重复弹出
+                        , content: $("#hidden-area-2")
+                        , btn: ['确定', '修改']
+                        , btnAlign: 'c' //按钮居中
+                        , yes: function () {
+                            layer.closeAll();
+                        }
+                    });
+                }, theold: function (othis) {
+                    layer.open({
+                        type: 1
+                        , title: '赡养老人扣除部分'
+                        , area: '350px;'
+                        , shade: 0.3
+                        , id: 'LAY_insurance' //防止重复弹出
+                        , content: $("#hidden-area-3")
+                        , btn: ['确定']
+                        , btnAlign: 'c' //按钮居中
+                        , yes: function () {
+                            layer.closeAll();
+                        }
+                    });
+                }
+            };
+
+            $('#myinsurance').on('click', function () {
+                var othis = $(this), method = othis.data('method');
+                active[method] ? active[method].call(this, othis) : '';
+            });
+            $('#mateinsurance').on('click', function () {
+                var othis = $(this), method = othis.data('method');
+                active[method] ? active[method].call(this, othis) : '';
+            });
+            $('#theold').on('click', function () {
+                var othis = $(this), method = othis.data('method');
+                active[method] ? active[method].call(this, othis) : '';
+            });
+
+        });
+
+
     </script>
+
+
+
 </body>
 
 </html>
