@@ -2136,13 +2136,12 @@ hr {
 
 .layui-btn {
 	display: inline-block;
-	/* margin-top: 25px; */
 	margin-left: 50px;
 	margin-bottom: 1px;
 	height: 35px;
 	line-height: 35px;
 	padding: 0 30px;
-	background-color: #55aaff;
+	background-color: #009688;
 	color: #fff;
 	white-space: nowrap;
 	text-align: center;
@@ -2382,15 +2381,15 @@ hr {
 
 .layui-form-label {
 	float: left;
-	margin-left: 250px;
+	margin-left: 150px;
 	display: block;
 	padding: 8px 15px;
-	width: 200px;
+	width: 150px;
 	font-weight: 400;
 	font-size: 15px;
 	color: #3d4522;
 	line-height: 20px;
-	text-align:right
+	text-align:center
 }
 
 .layui-form-label-col {
@@ -2446,11 +2445,10 @@ hr {
 }
 
 .layui-form-select .layui-edge {
-	position: relative;
-	right: 20px;
-	top: 4px;
-	margin-top: 0px;
-	margin-bottom: 0px;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -3px;
 	cursor: pointer;
 	border-width: 6px;
 	border-top-color: #c2c2c2;
@@ -2510,7 +2508,7 @@ hr {
 }
 
 .layui-form-select dl dd.layui-this {
-	background-color: #73c7ff;
+	background-color: #5FB878;
 	color: #fff
 }
 
@@ -4271,13 +4269,13 @@ body .layui-table-tips .layui-layer-content {
 	*display: inline;
 	*zoom: 1;
 	vertical-align: middle;
-	font-size: 18px;
+	font-size: 15px;
 	color:#6E757A;
 	transition: all .2s;
 	-webkit-transition: all .2s;
 	position: relative;
-	line-height: 40px;
-	min-width: 120px;
+	line-height: 35px;
+	min-width: 100px;
 	padding: 1px 10px;
 	text-align: center;
 	cursor: pointer
@@ -4288,7 +4286,7 @@ body .layui-table-tips .layui-layer-content {
 }
 
 .layui-tab-title .layui-this {
-	font-size: 1.3rem;
+	font-size: 17px;
 	color: #314584
 }
 
