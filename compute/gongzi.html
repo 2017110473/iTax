@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<head>
+	<!-- Metas -->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="" />
+	<!-- Links -->
+	<link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+	<link href="../css/icofont.min.css" rel="stylesheet">
+	<link href="../css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../css/slick.css" rel="stylesheet" />
+	<link href="../css/main.css" rel="stylesheet" />
+	<!-- Document Title -->
+	<title>iTax | 个税小帮手</title>
+</head>
+
+
+<body>
+	<!-- HEADER SECTION -->
+	<header id="home">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light ">
+				<!-- Change Logo Img Here -->
+				<a class="navbar-brand" href="#"><img src="../images/logo.svg" alt=""></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<div class="interactive-menu-button">
+						<a href="#">
+							<span>Menu</span>
+						</a>
+					</div>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item ">
+							<!-- Nav Link -->
+							<a class="nav-link" data-scroll href="../index.html">主页</a>
+						</li>
+						<li class="nav-item dropdown active">
+							<!-- Nav Link -->
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">个税计算</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<!-- Lang Dropdown Choice -->
+								<a class="dropdown-item" data-scroll href="gongzi.html">工资薪金 </a>
+								<!-- Lang Dropdown Choice -->
+								<a class="dropdown-item" data-scroll href="nianzhongjiang.html">年终奖 </a>
+								<!-- Lang Dropdown Choice -->
+								<a class="dropdown-item" data-scroll href="laowu.html">劳务报酬 </a>
+								<!-- Lang Dropdown Choice -->
+								<a class="dropdown-item" data-scroll href="gaochou.html">稿酬所得 </a>
+								<!-- Lang Dropdown Choice -->
+								<a class="dropdown-item" data-scroll href="texu.html">特许使用 </a>
+								<!-- Lang Dropdown Choice -->
+								<a class="dropdown-item" data-scroll href="jingying.html">经营所得 </a>
+								<!-- Lang Dropdown Choice -->
+								<a class="dropdown-item" data-scroll href="qita.html">其他所得 </a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<!-- Nav Link -->
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">个税对比</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<!-- Dropdown Choice -->
+								<a class="dropdown-item" data-scroll href="../comparison/salary.html">薪资对比 </a>
+								<a class="dropdown-item" data-scroll href="../comparison/final.html">汇算对比 </a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">个税优化</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<!-- Dropdown Choice -->
+								<a class="dropdown-item" data-scroll href="../optimizing/forsalary.html">薪资优化 </a>
+								<a class="dropdown-item" data-scroll href="../optimizing/forhome">家庭优化 </a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<!-- Nav Link -->
+							<a class="nav-link" data-scroll href="#contact-us">其他</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!-- TOP SECTION -->
+	<div class="container-fluid aboutimg">
+		<img src="../images/aboutimg.svg" alt="">
+		<div class="container">
+
+			<!-- TOP Title -->
+			<h2>工资薪金</h2>
+			<!-- TOP Title Info -->
+			<br />
+			<br />
+		</div>
+	</div>
+	<!--  SECTION -->
+	<section id="input" class="inputs">
+
+		<div class="side-img">
+			<img src="../images/aside3.svg" alt="">
+		</div>
+
+		<div class="container">
+			<div class="layui-tab">
+				<ul class="layui-tab-title">
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<form class="layui-form" action="">
+							<div class="layui-form-item">
+								<label class="layui-form-label" style="margin-left: 35px;">所在地：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 17px;">
+									<select name="city" lay-verify="required">
+										<option value=""></option>
+										<option value="0">北京</option>
+										<option value="1">上海</option>
+										<option value="2">广州</option>
+										<option value="3">深圳</option>
+										<option value="5">杭州</option>
+										<option value="6">重庆</option>
+										<option value="7">成都</option>
+										<option value="8">长沙</option>
+									</select>
+								</div>
+								<label class="layui-form-label" style="margin-left: 60px;">五险一金合计：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input">
+									<span class="unit">元</span>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label" style="margin-left: 35px;">本月税前工资：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 17px;">
+									<input type="text" name="title" required lay-verify="required" placeholder="请输入金额"
+										autocomplete="off" class="layui-input">
+									<span class="unit">元</span>
+								</div>
+								<label class="layui-form-label" style="margin-left: 60px; ">起征点（免征额）：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input" value="5000">
+									<span class="unit">元</span>
+								</div>
+
+
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label" style="margin-left: 35px;">专项附加扣除：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 17px;">
+									<input type="text" name="title"  placeholder="请输入金额"
+										autocomplete="off" class="layui-input">
+									<span class="unit">元</span>
+								</div>
+								<label class="layui-form-label" style="margin-left: 60px; ">预扣预缴应纳税所得额：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input">
+									<span class="unit">元</span>
+								</div>
+
+							</div>
+							<div class="layui-form-item">
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 17px;">
+									<button class="layui-btn" lay-submit lay-filter="formDemo"
+										style="margin-left: 240px;width: 100px;">计算</button>
+								</div>
+
+								<label class="layui-form-label" style="margin-left: 295px; ">适用税率：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input">
+									<span class="unit">元</span>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label" style="margin-left: 50px;">五险一金缴纳：</label>
+								<label class="layui-form-label" style="margin-left: -130px; font-size: 15px;">比例</label>
+								<label class="layui-form-label" style="margin-left: -100px; font-size: 15px;">基数</label>
+								<label class="layui-form-label" style="margin-left: 93px; ">速算扣除数：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input">
+									<span class="unit">元</span>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label" style="margin-left: 50px;margin-top: -10px;">养老：</label>
+								<div class="layui-input-block"
+									style="width: 200px;margin-left: 0px;margin-top: -5px; float: left;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input" style="width: 40px;height: 25px; margin-left: 18px;">
+									<span class="unit">%</span>
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input" style="width: 70px;;height: 25px; margin-left: 30px;">
+									<span class="unit">元</span>
+								</div>
+								<label class="layui-form-label" style="margin-left: 58px; ">预扣预缴应纳税额：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input">
+									<span class="unit">元</span>
+								</div>
+							</div>
+
+							<div class="layui-form-item">
+								<label class="layui-form-label" style="margin-left: 50px;margin-top: -22px;">医疗：</label>
+								<div class="layui-input-block"
+									style="width: 200px;margin-left: 0px;margin-top: -18px; float: left;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input" style="width: 40px;height: 25px; margin-left: 18px;">
+									<span class="unit">%</span>
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input" style="width: 70px;;height: 25px; margin-left: 30px;">
+									<span class="unit">元</span>
+								</div>
+								<label class="layui-form-label" style="margin-left: 58px; ">税后工资：</label>
+								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input">
+									<span class="unit">元</span>
+								</div>
+							</div>
+							<div class="layui-form-item" style="margin-top: -20px;">
+								<label class="layui-form-label" style="margin-left: 50px;margin-top: -20px;">失业：</label>
+								<div class="layui-input-block"
+									style="width: 200px;margin-left: 0px;margin-top: -18px; float: left;">
+									<input type="text" name="title" autocomplete="off"
+										class="layui-input" style="width: 40px;height: 25px; margin-left: 18px;">
+									<span class="unit">%</span>
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input" style="width: 70px;;height: 25px; margin-left: 30px;">
+									<span class="unit">元</span>
+								</div>
+							</div>
+							<div class="layui-form-item" style="margin-top: -20px;">
+								<label class="layui-form-label" style="margin-left: 50px;">公积金：</label>
+								<div class="layui-input-block"
+									style="width: 200px;margin-left: 0px;margin-top: 5px; float: left;">
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input" style="width: 40px;height: 25px; margin-left: 18px;">
+									<span class="unit">%</span>
+									<input type="text" name="title"  autocomplete="off"
+										class="layui-input" style="width: 70px;;height: 25px; margin-left: 30px;">
+									<span class="unit">元</span>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<div class="layui-input-block" style="margin-left: 210px; margin-top: -20px;">
+									<button data-method="changeparameter" id="changeparameter" data-type="auto"
+										style="background-color: #FFFFFF; color: #6C757D; border: 1px solid #ededef;border-radius: 4px; font-size: 13px; width: 100px;padding: 0 0;"
+										class="layui-btn layui-btn-primary layui-btn-xs">修改参数</button>
+								</div>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+	<footer style="margin-top: 50px;">
+		<div class=" container">
+			<div class="row">
+				<div class="col-12">
+					<h5>iTax</h5>
+					<h4>个税小帮手</h4>
+					<ul class="contact-nav">
+						<li><a data-scroll href="#home">返回开始</a></li>
+					</ul>
+					<h6>© 2020 - iTax, for all.</h6>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- 修改五险一金参数 -->
+	<div class="in-box" id="hidden-area" style="padding: 10px;">
+		<form class=" layui-form" action="" lay-filter="example">
+			<div class="input-item layui-form-item">
+				<label class="input-label layui-form-label"
+					style="font-weight:bolder;margin-left: 0; width: 100px;">五险一金:</label>
+				<label class="layui-form-label" style="margin-left: 20px;width: 80px;">比例</label>
+				<label class="layui-form-label" style="margin-left: 20px; width: 80px;">基数</label>
+			</div>
+		</form>
+		<form class="layui-form" action="" lay-filter="example">
+			<div class="input-item layui-form-item">
+				<label class="input-label layui-form-label" style="margin-left: 20px; width: 80px;">养老</label>
+				<div class="layui-input-block">
+					<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+						class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 0;">
+					<label class="yuan-label">%</label>
+					<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+						class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+					<label class="yuan-label">元</label>
+				</div>
+			</div>
+		</form>
+		<form class="layui-form" action="" lay-filter="example">
+			<div class="input-item layui-form-item">
+				<label class="input-label layui-form-label" style="margin-left: 20px; width: 80px;">医疗</label>
+				<div class="layui-input-block">
+					<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+						class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 0px;">
+					<label class="yuan-label">%</label>
+					<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+						class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+					<label class="yuan-label">元</label>
+				</div>
+			</div>
+		</form>
+		<form class="layui-form" action="" lay-filter="example">
+			<div class="input-item layui-form-item">
+				<label class="input-label layui-form-label" style="margin-left: 20px; width: 80px;">失业</label>
+				<div class="layui-input-block">
+					<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+						class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 0px;">
+					<label class="yuan-label">%</label>
+					<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+						class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+					<label class="yuan-label">元</label>
+				</div>
+			</div>
+		</form>
+		<form class="layui-form" action="" lay-filter="example">
+			<div class="input-item layui-form-item">
+				<label class="input-label layui-form-label" style="margin-left: 20px; width: 80px;">公积金</label>
+				<div class="layui-input-block">
+					<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+						class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 0px;">
+					<label class="yuan-label">%</label>
+					<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+						class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+					<label class="yuan-label">元</label>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+		crossorigin="anonymous"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/slick.min.js"></script>
+	<script src="../js/smooth-scroll.min.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../layui/layui.js" charset="utf-8"></script>
+	<!-- Scripts Ends -->
+	//
+
+	<script>
+		//Demo
+		layui.use('form', function () {
+			var form = layui.form;
+			//监听提交
+			form.on('submit(formDemo)', function (data) {
+				layer.msg(JSON.stringify(data.field));
+				return false;
+			});
+		}); 
+	</script>
+	<script>
+		layui.use('form', function () {
+			var form = layui.form;
+			form.render();
+			$("#hidden-area").hide();
+		});
+
+		layui.use('layer', function () {
+			var $ = layui.jquery, layer = layui.layer;
+
+			//触发事件
+			var active = {
+				changeparameter: function (othis) {
+					layer.open({
+						type: 1
+						, title: '修改五险一金参数'
+						, area: '400px;'
+						, shade: 0.3
+						, id: 'LAY_insurance' //防止重复弹出
+						, content: $("#hidden-area")
+						, btn: ['确定', '修改']
+						, btnAlign: 'c' //按钮居中
+						, yes: function () {
+							layer.closeAll();
+						}
+					});
+				}
+			};
+
+			$('#changeparameter').on('click', function () {
+				var othis = $(this), method = othis.data('method');
+				active[method] ? active[method].call(this, othis) : '';
+			});
+		});
+	</script>
+
+</body>
+
+</html>
