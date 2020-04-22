@@ -242,6 +242,80 @@
         </div>
     </footer>
 
+    <!--弹出框-->
+    <div class="in-box" id="hidden-area" style="padding: 10px;">
+
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="select-item layui-form-item">
+                <label class="input-label layui-form-label">选择城市</label>
+                <div class="layui-input-block">
+                    <select name="kinds" lay-filter="KindofIncome">
+                        <option value="0" selected="">上海</option>
+                        <option value="1">西安</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <form class=" layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label" style="font-weight:bolder;">五险一金:</label>
+                <label class="layui-form-label" style="margin-left:-30px;">比例</label>
+                <label class="layui-form-label" style="margin-left:-50px;">基数</label>
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">养老</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">医疗</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">失业</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+            </div>
+        </form>
+        <form class="layui-form" action="" lay-filter="example">
+            <div class="input-item layui-form-item">
+                <label class="input-label layui-form-label">公积金</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">%</label>
+                    <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off"
+                        class="layui-input" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <label class="yuan-label">元</label>
+                </div>
+            </div>
+        </form>
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -260,6 +334,7 @@
         layui.use('form', function () {
             var form = layui.form;
             form.render();
+            $("#hidden-area").hide();
         });
 
         layui.use('layer', function () {
@@ -271,14 +346,12 @@
                     layer.open({
                         type: 1
                         , title: '计算社会保险个人缴纳部分'
-                        , closeBtn: true
-                        , area: '300px;'
+                        , area: '460px;'
                         , shade: 0.3
                         , id: 'LAY_insurance' //防止重复弹出
-                        , content: '<div style="padding: 20px 100px;">text</div>'
+                        , content: $("#hidden-area")
                         , btn: ['确定', '修改']
                         , btnAlign: 'c' //按钮居中
-                        , moveType: 1 //拖拽模式，0或者1
                         , yes: function () {
                             layer.closeAll();
                         }
@@ -292,6 +365,8 @@
             });
         });
     </script>
+
+
 </body>
 
 </html>
