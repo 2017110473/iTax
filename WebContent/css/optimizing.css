@@ -1,0 +1,79 @@
+/*-----------------------------------------------------------
+1  . Share use
+-------------------------------------------------------------*/
+.aboutimg img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -9;
+    margin-top: 100px;
+    margin-right: 130px;
+    width: 30%;
+  }
+  
+  .aboutimg h2{
+    margin-top: 130px;
+    margin-bottom: 20px;
+    font-size: 3.5em;
+  } 
+
+  .side-img img {
+    position: absolute;
+    left: -20px;
+    z-index: -9;
+  }
+
+  .inputs {
+    padding: 50px 0px;
+  }
+  .inputs p {
+    font-size: 1.0rem;
+    color: #314584;
+    line-height: 1.5rem;
+  }
+
+  .input-box {
+    background-color: #fff;
+    padding: 40px 45px;
+    margin: 10px;
+    -webkit-box-shadow: 0px 3px 7px 0px rgba(28,31,33,0.15);
+    -moz-box-shadow: 0px 3px 7px 0px rgba(28,31,33,0.15);
+    box-shadow: 0px 3px 7px 0px rgba(28,31,33,0.15);
+    min-height: 400px;
+  }
+  
+
+/*-----------------------------------------------------------
+1  . input
+-------------------------------------------------------------*/
+
+  .input-btn{
+    padding-left:370px;
+  }
+
+.block {
+    padding: 40px 45px;
+    margin: 10px;
+    min-height: 400px;
+  }
+
+  .input-label{
+    margin-left: 0px;
+  }
+
+  .select-item, .input-item{
+    padding-right: 40px;
+  }
+
+  .layui-input{
+    width:200px;
+  }
+
+  .yuan-label{
+    padding-left: 10px;
+  }
+
+  .input-chart{
+    padding-right: 50px;
+  }
+  
