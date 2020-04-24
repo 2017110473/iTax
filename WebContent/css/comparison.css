@@ -1,0 +1,56 @@
+
+
+/*salary
+
+1. 
+*/
+
+.input-box {
+    background-color: #fff;
+    padding: 40px 45px;
+    margin: 10px;
+    -webkit-box-shadow: 0px 3px 7px 0px rgba(28,31,33,0.15);
+    -moz-box-shadow: 0px 3px 7px 0px rgba(28,31,33,0.15);
+    box-shadow: 0px 3px 7px 0px rgba(28,31,33,0.15);
+    min-height: 200px;
+  }
+
+  .in-box {
+    background-color: #fff;
+    min-height: 200px;
+  }
+
+.inputs {
+    padding: 50px 0px;
+  }
+  .inputs p {
+    font-size: 1.0rem;
+    color: #314584;
+    line-height: 1.5rem;
+  }
+  .side-img img {
+    position: absolute;
+    left: -20px;
+    z-index: -9;
+  }
+  .side2-img img {
+    position: absolute;
+    right: -20px;
+    top: 1300px;
+  }
+ 
+  .input-label{
+    margin-left: 0px;
+  }
+
+  .select-item, .input-item{
+    padding-right: 40px;
+  }
+
+  .layui-input{
+    width:200px;
+  }
+
+  .yuan-label{
+    padding-left: 10px;
+  }
