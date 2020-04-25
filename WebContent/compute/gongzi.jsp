@@ -124,7 +124,7 @@
 							<div class="layui-form-item">
 								<label class="layui-form-label" style="margin-left: 35px;">本月税前工资：</label>
 								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 17px;">
-									<input type="text" name="salary" lay-verify="required|number" placeholder="请输入金额"
+									<input type="number" name="salary" lay-verify="required|number" placeholder="请输入金额"
 										autocomplete="off" class="layui-input">
 									<span class="unit">元</span>
 								</div>			
@@ -139,7 +139,7 @@
 								<div class="layui-input-block" id="citydata" style="width: 200px; float: left;margin-left: 17px;">
  				                </div>
                    			 	<script type="text/html" id="city-select">
-									<select name="city" lay-filter="city" lay-search="" lay-verify="required">
+									<select name="city" lay-filter="city" lay-verify="required">
 										<option value="" selected="">请选择省会城市</option>
                     					{{each data value i}}
                     					<option value="{{value.region}}">{{value.region}}</option>
@@ -148,7 +148,7 @@
                					</script>
 								<label class="layui-form-label" style="margin-left: 60px; ">起征点（免征额）：</label>
 								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
-									<input type="text" name=start" autocomplete="off"
+									<input type="text" name="start" autocomplete="off"
 										class="layui-input" value="5000" disabled="">
 									<span class="unit">元</span>
 								</div>
@@ -158,13 +158,13 @@
 							<div class="layui-form-item">
 								<label class="layui-form-label" style="margin-left: 35px;">专项附加扣除：</label>
 								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 17px;">
-									<input type="text" name=special" lay-verify="required" placeholder="请输入金额"
+									<input type="number" name="special" lay-verify="required" placeholder="请输入金额"
 										autocomplete="off" class="layui-input">
 									<span class="unit">元</span>
 								</div>
 								<label class="layui-form-label" style="margin-left: 60px; ">应纳税所得额：</label>
 								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
-									<input type="text" name="taxSalary" autocomplete="off" class="layui-input" disabled="">
+									<input type="text" name="taxable_income" autocomplete="off" class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 
@@ -177,9 +177,9 @@
 
 								<label class="layui-form-label" style="margin-left: 295px; ">适用税率：</label>
 								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
-									<input type="text" name="taxRate" autocomplete="off"
+									<input type="text" name="tax" autocomplete="off"
 										class="layui-input" disabled="">
-									<span class="unit">元</span>
+									<span class="unit">%</span>
 								</div>
 							</div>
 							<div class="layui-form-item">
@@ -200,16 +200,16 @@
 								<label class="layui-form-label" style="margin-left: 50px;margin-top: -10px;">养老：</label>
 								<div class="layui-input-block"
 									style="width: 200px;margin-left: 0px;margin-top: -5px; float: left;">
-									<input type="text" name="pensionRate" lay-verify="required" autocomplete="off"
-										class="layui-input" style="width: 40px;height: 25px; margin-left: 18px; padding-left: 5px;">
+									<input type="number" name="pensionRate" lay-verify="required" autocomplete="off"
+										class="layui-input" style="width: 50px;height: 25px; margin-left: 18px; padding-left: 5px;">
 									<span class="unit">%</span>
-									<input type="text" name="pensionBase" lay-verify="required" autocomplete="off"
-										class="layui-input" style="width: 70px;;height: 25px; margin-left: 30px;padding-left: 5px;">
+									<input type="number" name="pensionBase" lay-verify="required" autocomplete="off"
+										class="layui-input" style="width: 70px;;height: 25px; margin-left: 20px;padding-left: 5px;">
 									<span class="unit">元</span>
 								</div>
 								<label class="layui-form-label" style="margin-left: 58px; ">应纳税额：</label>
 								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
-									<input type="text" name="taxValue"  autocomplete="off"
+									<input type="text" name="tax_value"  autocomplete="off"
 										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
@@ -219,16 +219,16 @@
 								<label class="layui-form-label" style="margin-left: 50px;margin-top: -22px;">医疗：</label>
 								<div class="layui-input-block"
 									style="width: 200px;margin-left: 0px;margin-top: -18px; float: left;">
-									<input type="text" name="medRate" lay-verify="required" autocomplete="off"
-										class="layui-input" style="width: 40px;height: 25px; margin-left: 18px; padding-left: 5px;">
+									<input type="number" name="medRate" lay-verify="required" autocomplete="off"
+										class="layui-input" style="width: 50px;height: 25px; margin-left: 18px; padding-left: 5px;">
 									<span class="unit">%</span>
-									<input type="text" name="medBase" lay-verify="required" autocomplete="off"
-										class="layui-input" style="width: 70px;;height: 25px; margin-left: 30px; padding-left: 5px;">
+									<input type="number" name="medBase" lay-verify="required" autocomplete="off"
+										class="layui-input" style="width: 70px;;height: 25px; margin-left: 20px; padding-left: 5px;">
 									<span class="unit">元</span>
 								</div>
 								<label class="layui-form-label" style="margin-left: 58px; ">税后工资：</label>
 								<div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
-									<input type="text" name="afterSalary" autocomplete="off"
+									<input type="text" name="after_salary" autocomplete="off"
 										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
@@ -237,11 +237,11 @@
 								<label class="layui-form-label" style="margin-left: 50px;margin-top: -20px;">失业：</label>
 								<div class="layui-input-block"
 									style="width: 200px;margin-left: 0px;margin-top: -18px; float: left;">
-									<input type="text" name="unempRate" lay-verify="required" autocomplete="off"
-										class="layui-input" style="width: 40px;height: 25px; margin-left: 18px; padding-left: 5px;">
+									<input type="number" name="unempRate" lay-verify="required" autocomplete="off"
+										class="layui-input" style="width: 50px;height: 25px; margin-left: 18px; padding-left: 5px;">
 									<span class="unit">%</span>
-									<input type="text" name="unempBase" lay-verify="required" autocomplete="off"
-										class="layui-input" style="width: 70px;;height: 25px; margin-left: 30px; padding-left: 5px;">
+									<input type="number" name="unempBase" lay-verify="required" autocomplete="off"
+										class="layui-input" style="width: 70px;;height: 25px; margin-left: 20px; padding-left: 5px;">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -249,11 +249,11 @@
 								<label class="layui-form-label" style="margin-left: 50px;">公积金：</label>
 								<div class="layui-input-block"
 									style="width: 200px;margin-left: 0px;margin-top: 5px; float: left;">
-									<input type="text" name="houseRate" lay-verify="required" autocomplete="off"
-										class="layui-input" style="width: 40px;height: 25px; margin-left: 18px;padding-left: 5px;">
+									<input type="number" name="houseRate" lay-verify="required" autocomplete="off"
+										class="layui-input" style="width: 50px;height: 25px; margin-left: 18px;padding-left: 5px;">
 									<span class="unit">%</span>
-									<input type="text" name="houseBase" lay-verify="required" autocomplete="off"
-										class="layui-input" style="width: 70px;;height: 25px; margin-left: 30px; padding-left: 5px;">
+									<input type="number" name="houseBase" lay-verify="required" autocomplete="off"
+										class="layui-input" style="width: 70px;;height: 25px; margin-left: 20px; padding-left: 5px;">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -332,7 +332,9 @@
 			
 			//提交信息开始计算
             form.on('submit(compute)', function () {
-            	var info = form.val('info');
+            	 computeIns();
+            	 computeTax();
+            	 return false;
 			});
 			
 			//参数更新函数
@@ -391,7 +393,8 @@
             		        "houseBase":  houseBase,
             		    });
             		    
-            		    computeIns();
+                   	 	computeIns();
+            		    
             		},error: function(data){
             			alert("error");
             		}
@@ -413,26 +416,25 @@
             //税率计算函数
             function computeTax(){
             	var info = form.val('info');
+            	
             	$.ajax({
 	        		url:"<%=basePath%>taxForSalary",
 	        		data: {
-	        			   preSalary:info.salary,
+	        			   preSalary: info.salary,
 	                 	   socialIns: info.socialIns,
-	                 	   special:info.special,
-	                 	   start:info.start,
+	                 	   special: info.special,
+	                 	   start: info.start,
 	                    },
-	        		type:"get",
+	        		type:"post",
 	        		async:false,
 	        		success: function(data) {
-	        			console.log(data);
-	        			
-	        			
-	        			
-	        			
-	        			
-	        			
-	        			
-	        			
+	        			 form.val('info', {
+	            		        "deduction":  data.deduction,
+	            		        "tax_value":  Math.round(parseFloat(data.tax_value)*100)/100,
+	            		        "tax":  parseFloat(data.tax)*100,
+	            		        "taxable_income": Math.round(parseFloat(data.taxable_income)*100) / 100,
+	            		 	    "after_salary":  Math.round(parseFloat(data.after_salary)*100)/ 100,
+	            		    });    			
 	        		},
 	        		error: function(data){
 	        			alert("error");

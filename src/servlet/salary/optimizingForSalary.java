@@ -13,9 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSONArray;
 
-@WebServlet (name="taxForSalary", urlPatterns = {"/taxForSalary"})
-public class taxForSalary extends HttpServlet{
-
+@WebServlet (name="optimizingForSalary", urlPatterns = {"/optimizingForSalary"})
+public class optimizingForSalary extends HttpServlet{
 	public void init() throws ServletException
 	  {
 	  }
@@ -35,20 +34,24 @@ public class taxForSalary extends HttpServlet{
 	  public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		  	double pre_salary = Double.parseDouble(request.getParameter("preSalary"));
 			double social_ins = Double.parseDouble(request.getParameter("socialIns"));
+			double bonus = Double.parseDouble(request.getParameter("bonus"));
 			double special = Double.parseDouble(request.getParameter("special"));
 			double start = Double.parseDouble(request.getParameter("start"));
+	
+			double sum = pre_salary * 12 + bonus - social_ins * 12 - special * 12 -  start * 12;
 			
-			//应缴税所得额
-			double taxable_income = pre_salary - social_ins - special -  start;
-			taxable_income = taxable_income>0?taxable_income:0;
+			//总值界限
+			Integer[] sumLimit = new Integer[] {0, 36000, 203100, 672000, 1277500, 1452500};
+			
 			//税率、速算扣除数、界限
-			Double[] tax = new Double[] {0.0, 0.03, 0.10, 0.20, 0.25, 0.30, 0.35, 0.45}; 
-			Integer[] deduction = new Integer[] {0, 0, 2520, 16920, 31920, 52920, 85920, 181920};  
-			Integer[] bound = new Integer[] {-1, 0, 36000, 144000, 300000, 420000, 660000, 960000};  
+			Double[] tax = new Double[] {0.03, 0.10, 0.20, 0.25, 0.30, 0.35, 0.45}; 
+			Integer[] deductionforSalary = new Integer[] {0, 2520, 16920, 31920, 52920, 85920, 181920};  
+			Integer[] bound = new Integer[] {0, 36000, 144000, 300000, 420000, 660000, 960000};  
+			Integer[] deductionforBonus = new Integer[] {0, 210, 1410, 2660, 4410, 7160, 15160};
 			int i; //循环变量
 		    try {
 		          for(i=0; i < tax.length; i++) {
-		        	  if(taxable_income > bound[i]) {
+		        	  if(sum > sumLimit[i]) {
 		        		  continue;
 		        	  }
 		        	  else {
@@ -56,8 +59,13 @@ public class taxForSalary extends HttpServlet{
 		        	  }
 		          }
 		          
-		          double tax_value = taxable_income * tax[i-1] - deduction[i-1];
-		          double after_salary = pre_salary - social_ins - tax_value;
+		          double afterBonus = bound[i-1];
+		          double alterSalary = pre_salary + bonus - afterBonus;
+		          double bonusTax = afterBonus * tax[i-1] - deductionforBonus[i-1];
+		          double income =  sum + bonus - afterBonus;
+		          
+		         
+		          double optimizedBonus = pre_salary - social_ins - tax_value;
 		          
 		          Map<String, Object> result = new HashMap<String, Object>();
 		          result.put("taxable_income", taxable_income);
