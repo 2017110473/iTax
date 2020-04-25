@@ -116,7 +116,7 @@
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">税前薪金</label>
                                     <div class="layui-input-block">
-                                        <input type="text" name="salary" lay-verify="required"  placeholder="按月填写"
+                                        <input type="number" name="salary" lay-verify="required"  placeholder="按月填写"
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
@@ -124,7 +124,7 @@
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">年终奖金</label>
                                     <div class="layui-input-block">
-                                        <input type="text" name="bonus" placeholder="按年填写"
+                                        <input type="number" name="bonus" placeholder="按年填写"
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
@@ -132,7 +132,7 @@
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">社会保险</label>
                                     <div class="layui-input-block">
-                                        <input type="text" name="socialIns"  placeholder="按月填写"
+                                        <input type="number" name="socialIns"  placeholder="按月填写"
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
@@ -145,7 +145,7 @@
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">专项扣除</label>
                                     <div class="layui-input-block">
-                                        <input type="text" name="special" placeholder="按月填写"
+                                        <input type="number" name="special" placeholder="按月填写"
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
@@ -238,7 +238,7 @@
 
     <!--弹出框-->
     <div class="in-box" id="hidden-area" style="padding: 10px;">
-
+		<!-- 城市选择 -->
         <form class="layui-form" action="" lay-filter="selectCity">
             <div class="select-item layui-form-item">
                 <label class="input-label layui-form-label">选择城市</label>
@@ -254,6 +254,8 @@
                		</script>
             </div>
         </form>
+        
+       <!-- 社会保险相关信息 -->
         <form class=" layui-form" action="" lay-filter="ins">
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label" style="font-weight:bolder;">五险一金:</label>
@@ -327,11 +329,6 @@
             var form = layui.form, $ = layui.jquery, layer = layui.layer;
             form.render();
             $("#hidden-area").hide();
-			
-          //监听提交
-            form.on('submit(insuranceBtn)', function (data) {
-				return false;
-			});
             
             form.on('select(city)', function (data) {
             	var region = data.value;
@@ -455,6 +452,24 @@
             		layer.msg("请完成信息填写！");
             	} else {
             		var salary = info.salary, bonus = info.bonus, socialIns = info.socialIns, special = info.special;
+            		$.ajax({
+                		url:"<%=basePath%>optimizingForSalary",
+                		data: {
+                     	   preSalary: salary,
+                     	   bonus: bonus,
+                     	   socialIns: socialIns,
+                     	   special: special,
+                     	   start: 5000,
+                        },
+                		type:"post",
+                		async:false,
+                		success: function(data) {
+                			
+                			
+                		},error: function(data){
+                			alert("error");
+                		}
+                		})
             	}
             });
         });
