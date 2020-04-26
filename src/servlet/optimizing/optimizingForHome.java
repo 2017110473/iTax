@@ -41,177 +41,124 @@ public class optimizingForHome extends HttpServlet{
 
 			double my_taxable_income = 12*(my_salary - my_ins);
 			double mate_taxable_income = 12*(mate_salary - mate_ins);
-			
+			double for_my_parent = 0.0;
 			if(request.getParameter("my_parent") != null && request.getParameter("my_parent") != "")
 			{
-				double for_my_parent = Double.parseDouble(request.getParameter("my_parent")) * 12;
+				for_my_parent = Double.parseDouble(request.getParameter("my_parent")) * 12;
 				my_taxable_income -= for_my_parent;
-				result.put("my_parent", for_my_parent);
 			}
-	
+			result.put("my_parent", for_my_parent);
+				
+			double for_mate_parent= 0.0;
 			if(request.getParameter("mate_parent") != null && request.getParameter("mate_parent") != "")
 			{
-				double for_mate_parent = Double.parseDouble(request.getParameter("mate_parent")) * 12;
+				for_mate_parent = Double.parseDouble(request.getParameter("mate_parent")) * 12;
 				mate_taxable_income -= for_mate_parent;
-				result.put("mate_parent",for_mate_parent);
 			}
+			result.put("mate_parent",for_mate_parent);
+			
 			if(request.getParameter("myrecordEducation") != null && request.getParameter("myrecordEducation") != "")
 			{
 				my_taxable_income -= 12 * 400;
 				result.put("myrecordEducation",12*400);
+			}else {
+				result.put("myrecordEducation",0);
 			}
 			if(request.getParameter("materecordEducation") != null && request.getParameter("materecordEducation") != "")
 			{
 				mate_taxable_income -= 12 * 400;
 				result.put("materecordEducation",12*400);
+			}else {
+				result.put("materecordEducation",0);
 			}
+			
 			if(request.getParameter("myskillEducation") != null && request.getParameter("myskillEducation") != "")
 			{
 				my_taxable_income -= 3600;
 				result.put("myskillEducation",3600);
+			}else {
+				result.put("myskillEducation",0);
 			}
+			
 			if(request.getParameter("mateskillEducation") != null && request.getParameter("mateskillEducation") != "")
 			{
 				mate_taxable_income -= 3600;
 				result.put("mateskillEducation",3600);
+			}else {
+				result.put("mateskillEducation",0);
 			}
 		
 			int for_kids = 0;
 			if(request.getParameter("number_kids") != null && request.getParameter("number_kids") != "")
 			{
-				 for_kids = Integer.parseInt(request.getParameter("number_kids"))*1000;
-				 result.put("for_kids", for_kids);
+				for_kids = Integer.parseInt(request.getParameter("number_kids"))*1000*12;	 
 			}
-			
+				result.put("for_kids", for_kids);
+
 			int home = 0;
-			if(request.getParameter("home") == "loan")
-			{
-				home = 1000 * 12;
-			} else if (request.getParameter("home") == "rent1") {
-				home = 1500 * 12;
-			} else if (request.getParameter("home") == "rent2") {
-				home = 1100 * 12;
-			} else if (request.getParameter("home") == "rent3") {
-				home = 800 * 12;
+			String homeselect = request.getParameter("homeselect");
+			String house = request.getParameter("home");
+			if(homeselect != null && homeselect.equals("house")) {
+				if(house != null && house.equals("loan"))
+				{
+					home = 1000 * 12;
+					result.put("for_home", home);
+				} else if (house != null && house.equals("rent1")) {
+					home = 1500 * 12;
+					result.put("for_home", home);
+				} else if (house != null && house.equals("rent2")) {
+					home = 1100 * 12;
+					result.put("for_home", home);
+				} else if (house != null && house.equals("rent3")) {
+					home = 800 * 12;
+					result.put("for_home", home);
+				}
+			} else {
+				result.put("for_home", home);
 			}
 			
-			//税率、速算扣除数、界限
-			Double[] tax = new Double[] {0.0, 0.03, 0.10, 0.20, 0.25, 0.30, 0.35, 0.45}; 
-			Integer[] deduction = new Integer[] {0, 0, 2520, 16920, 31920, 52920, 85920, 181920};  
-			Integer[] bound = new Integer[] {-1, 0, 36000, 144000, 300000, 420000, 660000, 960000};  
-			int i, j; //循环变量
+			 
+			double i, j; //循环变量
+			double difference = Double.MAX_VALUE;
+			double best_i = 0, best_j = 0;
 			
 		    try {
-		          for(i=0; i < tax.length; i++) {
-		        	  if(my_taxable_income > bound[i]) {
-		        		  continue;
-		        	  }
-		        	  else {
-		        		  break;
-		        	  }
+		         for(i=0; i<=1; i+=0.5) {
+		        	  for(j=0; j<=1; j+=0.5) {
+		        		  double mytmp = my_taxable_income - i * home - j * for_kids;
+		        		  double matetmp = mate_taxable_income - (1-i) * home - (1-j) * for_kids;
+		        		  if(Math.abs(mytmp-matetmp) < difference) {
+		        			  difference =  Math.abs(mytmp-matetmp);
+		        			  best_i = i;
+		        			  best_j = j;
+		        		  }
+		        	  }	        	  
 		          }
 		          
-		          for(j=0; j < tax.length; j++) {
-		        	  if(mate_taxable_income > bound[j]) {
-		        		  continue;
-		        	  }
-		        	  else {
-		        		  break;
-		        	  }
-		          }
-		          
-		          if(for_kids > home) {
-		        	  if(my_taxable_income - mate_taxable_income >= for_kids) {
-			        	  my_taxable_income -= for_kids;
-			        	  result.put("who_for_kids", "m");
-			        	  if(my_taxable_income - mate_taxable_income >= home/2) {
-			        		  my_taxable_income -= home;
-				        	  result.put("who_for_home", "m");
-			        	  }else if(my_taxable_income - mate_taxable_income >= -home/2){
-			        		  my_taxable_income -= home/2;
-			        		  mate_taxable_income -=home/2;
-				        	  result.put("who_for_home", "mandmate");  
-			        	  } else {
-			        		  mate_taxable_income -= home;
-				        	  result.put("who_for_home", "mate");
-			        	  }
-			          } else if(mate_taxable_income - my_taxable_income >= for_kids) {
-			        	  mate_taxable_income -= for_kids;
-			        	  result.put("who_for_kids", "mate");
-			        	  if(mate_taxable_income - my_taxable_income >= home/2) {
-			        		  mate_taxable_income -= home;
-				        	  result.put("who_for_home", "mate");
-			        	  }else if(mate_taxable_income - my_taxable_income >= -home/2){
-			        		  my_taxable_income -= home/2;
-			        		  mate_taxable_income -=home/2;
-				        	  result.put("who_for_home", "mandmate");  
-			        	  } else {
-			        		  my_taxable_income -= home;
-				        	  result.put("who_for_home", "m");
-			        	  }
-			          } else {
-			        	  my_taxable_income -= for_kids/2;
-		        		  mate_taxable_income -=for_kids/2;
-			        	  result.put("who_for_kids", "mandmate");
-			        	  if(my_taxable_income - mate_taxable_income >= home/2) {
-			        		  my_taxable_income -= home;
-				        	  result.put("who_for_home", "m");
-			        	  }else if(my_taxable_income - mate_taxable_income >= -home/2){
-			        		  my_taxable_income -= home/2;
-			        		  mate_taxable_income -=home/2;
-				        	  result.put("who_for_home", "mandmate");  
-			        	  } else {
-			        		  mate_taxable_income -= home;
-				        	  result.put("who_for_home", "mate");
-			          }
-		          }
-		          }else {
-		        	  if(my_taxable_income - mate_taxable_income >= home) {
-			        	  my_taxable_income -= home;
-			        	  result.put("who_for_home", "m");
-			        	  if(my_taxable_income - mate_taxable_income >= for_kids/2) {
-			        		  my_taxable_income -= for_kids;
-				        	  result.put("who_for_kids", "m");
-			        	  }else if(my_taxable_income - mate_taxable_income >= -for_kids/2){
-			        		  my_taxable_income -= for_kids/2;
-			        		  mate_taxable_income -=for_kids/2;
-				        	  result.put("who_for_kids", "mandmate");  
-			        	  } else {
-			        		  mate_taxable_income -= for_kids;
-				        	  result.put("who_for_kids", "mate");
-			        	  }
-			          } else if(mate_taxable_income - my_taxable_income >= home) {
-			        	  mate_taxable_income -= home;
-			        	  result.put("who_for_home", "mate");
-			        	  if(mate_taxable_income - my_taxable_income >= for_kids/2) {
-			        		  mate_taxable_income -= for_kids;
-				        	  result.put("who_for_kids", "mate");
-			        	  }else if(mate_taxable_income - my_taxable_income >= -for_kids/2){
-			        		  my_taxable_income -= for_kids/2;
-			        		  mate_taxable_income -=for_kids/2;
-				        	  result.put("who_for_kids", "mandmate");  
-			        	  } else {
-			        		  my_taxable_income -= for_kids;
-				        	  result.put("who_for_kids", "m");
-			        	  }
-			          } else {
-			        	  my_taxable_income -= home/2;
-		        		  mate_taxable_income -=home/2;
-			        	  result.put("who_for_home", "mandmate");
-			        	  if(my_taxable_income - mate_taxable_income >= for_kids/2) {
-			        		  my_taxable_income -= for_kids;
-				        	  result.put("who_for_kids", "m");
-			        	  }else if(my_taxable_income - mate_taxable_income >= -for_kids/2){
-			        		  my_taxable_income -= for_kids/2;
-			        		  mate_taxable_income -=for_kids/2;
-				        	  result.put("who_for_kids", "mandmate");  
-			        	  } else {
-			        		  mate_taxable_income -= for_kids;
-				        	  result.put("who_for_kids", "mate");
-			          }
-		          }
-		          }
-		          
+		         if(home > 0) {
+		        	 if(best_i == 1) {
+		        		 result.put("who_for_home", "m");
+		        	 }else if(best_i == 0) {
+		        		 result.put("who_for_home", "mate");
+		        	 }else {
+		        		 result.put("who_for_home", "mandmate");
+		        	 }
+		         }
+		    	
+		         if(for_kids > 0) {
+		        	 if(best_j == 1) {
+		        		 result.put("who_for_kids", "m");
+		        	 }else if(best_j == 0) {
+		        		 result.put("who_for_kids", "mate");
+		        	 }else {
+		        		 result.put("who_for_kids", "mandmate");
+		        	 }
+		         }
+		    	
+		         my_taxable_income = my_taxable_income > 0 ? my_taxable_income:0;
+		         mate_taxable_income = mate_taxable_income > 0 ? mate_taxable_income:0;
+		         result.put("my_taxable_income", my_taxable_income);
+		         result.put("mate_taxable_income", mate_taxable_income);
 		          System.out.println(result);
 		          String CONTENT_TYPE = "application/json; charset = GBK";
 		          response.setContentType(CONTENT_TYPE);
