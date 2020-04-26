@@ -6,6 +6,7 @@
 %>
 <!DOCTYPE html>
 <html>
+
 <head>
     <!-- Metas -->
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -36,7 +37,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <!-- Nav Link -->
-                            <a class="nav-link" data-scroll href="../index.html">主页<span
+                            <a class="nav-link" data-scroll href="../index.jsp">主页<span
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
@@ -45,13 +46,13 @@
                                 aria-haspopup="true" aria-expanded="false">个税计算</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!-- Dropdown Choice -->
-                                <a class="dropdown-item" data-scroll href="../compute/gongzi.html">工资薪金 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/nianzhongjiang.html">年终奖 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/laowu.html">劳务报酬 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/gaochou.html">稿酬所得 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/texu.html">特许使用 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/jingying.html">经营所得 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/qita.html">其他所得 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/gongzi.jsp">工资薪金 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/nianzhongjiang.jsp">年终奖 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/laowu.jsp">劳务报酬 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/gaochou.jsp">稿酬所得 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/texu.jsp">特许使用 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/jingying.jsp">经营所得 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/qita.jsp">其他所得 </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -60,8 +61,8 @@
                                 aria-haspopup="true" aria-expanded="false">个税对比</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!-- Dropdown Choice -->
-                                <a class="dropdown-item" data-scroll href="../comparison/salary.html">薪资对比 </a>
-                                <a class="dropdown-item" data-scroll href="../comparison/final.html">汇算对比 </a>
+                                <a class="dropdown-item" data-scroll href="../comparison/salary.jsp">薪资对比 </a>
+                                <a class="dropdown-item" data-scroll href="../comparison/final.jsp">汇算对比 </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown active">
@@ -69,13 +70,9 @@
                                 aria-haspopup="true" aria-expanded="false">个税优化</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!-- Dropdown Choice -->
-                                <a class="dropdown-item" data-scroll href="forsalary.html">薪资优化 </a>
-                                <a class="dropdown-item" data-scroll href="forhome.html">家庭优化 </a>
+                                <a class="dropdown-item" data-scroll href="forsalary.jsp">薪资优化 </a>
+                                <a class="dropdown-item" data-scroll href="forhome.jsp">家庭优化 </a>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <!-- Nav Link -->
-                            <a class="nav-link" data-scroll href="#">其他</a>
                         </li>
                     </ul>
                 </div>
@@ -116,7 +113,7 @@
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">我的月薪</label>
                                     <div class="layui-input-block">
-                                        <input type="number" name="my_salary" lay-verify="required" placeholder=""
+                                        <input type="number" name="my_salary" lay-verify="required" placeholder="按月填写"
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
@@ -124,7 +121,7 @@
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">我的社保</label>
                                     <div class="layui-input-block">
-                                        <input type="number" name="my_ins" lay-verify="required" placeholder=""
+                                        <input type="number" name="my_ins" lay-verify="required" placeholder="按月填写"
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
@@ -135,7 +132,7 @@
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">配偶月薪</label>
                                     <div class="layui-input-block">
-                                        <input type="number" name="mate_salary" lay-verify="required" placeholder=""
+                                        <input type="number" name="mate_salary" lay-verify="required" placeholder="按月填写"
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
@@ -143,7 +140,7 @@
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">配偶社保</label>
                                     <div class="layui-input-block">
-                                        <input type="number" name="mate_ins" lay-verify="required" placeholder=""
+                                        <input type="number" name="mate_ins" lay-verify="required" placeholder="按月填写"
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
@@ -153,6 +150,7 @@
                                 </div>
                             </form>
 
+                            <!--专项选择(优化对象)-->
                             <form class="layui-form" action="" lay-filter="special">
                                 <div class="layui-form-item">
                                     <label class="input-label layui-form-label"
@@ -169,8 +167,8 @@
                                     <div class="layui-form-item">
                                         <label class="input-label layui-form-label">个人情况</label>
                                         <div class="layui-input-block">
-                                            <input type="checkbox" lay-filter="theold" name="theold"
-                                                value="theold" title="赡养老人">
+                                            <input type="checkbox" lay-filter="theold" name="theold" value="theold"
+                                                title="赡养老人">
                                             <input type="checkbox" lay-filter="education" name="education"
                                                 value="education" title="继续教育">
                                         </div>
@@ -179,60 +177,26 @@
                             </form>
                         </div>
                     </div>
+                    <!--优化-->
                     <div class="hero-btns input-btn">
                         <a id="optimizing">进行优化</a>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6">
                     <div class="block">
-                        <!-- Title -->
-                        <h3>节税额</h3>
-                        <h4>1000元/年</h4>
-                        <br />
-                        <!-- Title -->
                         <h3>最优结果</h3>
-                        <table class="layui-table" lay-size="lg">
+                        <!--表格-->
+                        <table class="layui-table" lay-size="lg" id="result">
                             <colgroup>
                                 <col>
                                 <col width="150">
                                 <col width="150">
                             </colgroup>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>我的扣除</th>
-                                    <th>配偶扣除</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>住房扣除</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>赡养老人</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>子女教育</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>继续教育</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
                         </table>
                         <br />
-                        <!-- Title -->
-                        <h3>纳税额占比</h3>
-                        <!-- input Info -->
+                        <!--图像展示-->
                         <div>
-
+                            <div id="echart-area" style="width:100%;height:300px; margin-top:80px"> </div>
                         </div>
 
 
@@ -240,9 +204,6 @@
                 </div>
             </div>
         </div>
-
-
-
     </section>
 
 
@@ -265,13 +226,13 @@
 
     <!--弹出框:我的社保-->
     <div class="in-box" id="hidden-area-1" style="padding: 10px;">
-		<!-- 城市选择 -->
+        <!-- 城市选择 -->
         <form class="layui-form" action="" lay-filter="myselectCity">
             <div class="select-item layui-form-item">
                 <label class="input-label layui-form-label">选择城市</label>
                 <div class="layui-input-block" id="mycitydata">
                 </div>
-                    <script type="text/html" id="my-city-select">
+                <script type="text/html" id="my-city-select">
 					<select name="mycity"  lay-filter="mycity" lay-search="">
 						<option value="0" selected="">请选择或搜索省会城市</option>
                     {{each data value i}}
@@ -281,8 +242,8 @@
                		</script>
             </div>
         </form>
-        
-       <!-- 社会保险相关信息 -->
+
+        <!-- 社会保险相关信息 -->
         <form class=" layui-form" action="" lay-filter="myins">
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label" style="font-weight:bolder;">五险一金:</label>
@@ -292,7 +253,7 @@
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label">养老</label>
                 <div class="layui-input-block">
-                    <input type="number" name="myPensionRate"  placeholder="" autocomplete="off"
+                    <input type="number" name="myPensionRate" placeholder="" autocomplete="off"
                         class="layui-input changeable" style="width: 50px; padding-left: 5px; margin-left: 20px;">
                     <label class="yuan-label">%</label>
                     <input type="number" name="myPensionBase" placeholder="" autocomplete="off"
@@ -334,20 +295,18 @@
                 </div>
             </div>
         </form>
-    </div>      
-    
-    
-    
+    </div>
+
     <!--弹出框:配偶社保-->
     <div class="in-box" id="hidden-area-2" style="padding: 10px;">
 
-        		<!-- 城市选择 -->
+        <!-- 城市选择 -->
         <form class="layui-form" action="" lay-filter="mateselectCity">
             <div class="select-item layui-form-item">
                 <label class="input-label layui-form-label">选择城市</label>
                 <div class="layui-input-block" id="matecitydata">
                 </div>
-                    <script type="text/html" id="mate-city-select">
+                <script type="text/html" id="mate-city-select">
 					<select name="matecity"  lay-filter="matecity" lay-search="">
 						<option value="0" selected="">请选择或搜索省会城市</option>
                     {{each data value i}}
@@ -357,8 +316,8 @@
                		</script>
             </div>
         </form>
-        
-       <!-- 社会保险相关信息 -->
+
+        <!-- 社会保险相关信息 -->
         <form class=" layui-form" action="" lay-filter="mateins">
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label" style="font-weight:bolder;">五险一金:</label>
@@ -368,7 +327,7 @@
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label">养老</label>
                 <div class="layui-input-block">
-                    <input type="number" name="matePensionRate"  placeholder="" autocomplete="off"
+                    <input type="number" name="matePensionRate" placeholder="" autocomplete="off"
                         class="layui-input changeable" style="width: 50px; padding-left: 5px; margin-left: 20px;">
                     <label class="yuan-label">%</label>
                     <input type="number" name="matePensionBase" placeholder="" autocomplete="off"
@@ -411,10 +370,7 @@
             </div>
         </form>
     </div>
-    
-    
-    
-    
+
     <!--弹出框:赡养老人扣除费用-->
     <div class="in-box" id="hidden-area-3" style="padding: 10px;">
 
@@ -476,7 +432,8 @@
 
         <form class="layui-form" action="" lay-filter="study">
             <div class="select-item layui-form-item">
-                <label class="input-label layui-form-label" style="margin-left: 80px; font-weight: bolder;">我的继续教育情况</label>
+                <label class="input-label layui-form-label"
+                    style="margin-left: 80px; font-weight: bolder;">我的继续教育情况</label>
                 <div>
                     <input type="checkbox" name="myrecordEducation" value="recordEducation" title="学历教育"
                         lay-skin="primary">
@@ -485,7 +442,8 @@
                 </div>
             </div>
             <div class="select-item layui-form-item">
-                <label class="input-label layui-form-label" style="margin-left: 80px;font-weight: bolder; ">配偶继续教育情况</label>
+                <label class="input-label layui-form-label"
+                    style="margin-left: 80px;font-weight: bolder; ">配偶继续教育情况</label>
                 <div>
                     <input type="checkbox" name="materecordEducation" value="recordEducation" title="学历教育"
                         lay-skin="primary">
@@ -510,408 +468,639 @@
     <script src="../layui/layui.js" charset="utf-8"></script>
     <script src="../js/jquery.js"></script>
     <script src="../js/template.js"></script>
-    
+    <script src="https://cdn.bootcss.com/echarts/3.7.2/echarts.min.js"></script>
 
     <script>
-    layui.use(['form', 'layer'], function () {
-        var form = layui.form
-            , layer = layui.layer
-            , layedit = layui.layedit
-            , laydate = layui.laydate;
-        form.render();
-        $('#hidden-area-1').hide();
-        $('#hidden-area-2').hide();
-        $('#hidden-area-3').hide();
-        $('#hidden-area-4').hide();
-        $('#hidden-area-5').hide();
-        $('#hidden-area-6').hide();
+        layui.use(['form', 'layer', 'table'], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate
+                , table = layui.table;
+            form.render();
+            $('#hidden-area-1').hide();//隐藏
+            $('#hidden-area-2').hide();
+            $('#hidden-area-3').hide();
+            $('#hidden-area-4').hide();
+            $('#hidden-area-5').hide();
+            $('#hidden-area-6').hide();
 
-        //弹出框
-        var active = {
-            myinsurance: function (othis) {
-                layer.open({
-                    type: 1
-                    , title: '计算社会保险个人缴纳部分'
-                    , area: '460px;'
-                    , shade: 0.3
-                    , id: 'LAY_insurance' //防止重复弹出
-                    , content: $("#hidden-area-1")
-                    , btn: ['确定']
-                    , btnAlign: 'c' //按钮居中
-                    , yes: function () {
-                        var myins = form.val('myins');
-                        if (myins.myPensionRate == "" || myins.myPensionBase == "" || myins.myMedRate == "" || myins.myMedBase == "" ||
-                            myins.myUnempRate == "" || myins.myUnempRate == "" || myins.myHouseRate == "" || myins.myHouseBase == "") {
-                            if (form.val('myselectCity').mycity == "0") {
-                                layer.msg("请选择省会城市！");
+            //表格
+            table.render({
+                        elem: '#result'
+                        , cols: [[ //标题栏
+                            { field: 'title', title: '' }
+                            , { field: 'me', title: '我' }
+                            , { field: 'mate', title: '配偶' }
+                        ]]
+                        , data: [{"title": "税前收入",
+                            "me": "",
+                            "mate": ""
+                         },{
+                            "title": "子女教育扣除",
+                            "me": "",
+                            "mate": "",
+                        }, {
+                            "title": "住房情况扣除",
+                            "me": "",
+                            "mate": "",
+                        }, {
+                            "title": "赡养老人扣除",
+                            "me": "",
+                            "mate": "",
+                        }, {
+                            "title": "继续教育扣除",
+                            "me": "",
+                            "mate": "",
+                        }, {
+                            "title": "扣除合计",
+                            "me": "",
+                            "mate": "",
+                        }, {
+                            "title": "年纳税额",
+                            "me": "",
+                            "mate": "",
+                        }]
+                    });
+
+            //弹出框
+            var active = {
+                myinsurance: function (othis) {
+                    layer.open({
+                        type: 1
+                        , title: '计算社会保险个人缴纳部分'
+                        , area: '460px;'
+                        , shade: 0.3
+                        , id: 'LAY_insurance' //防止重复弹出
+                        , content: $("#hidden-area-1")
+                        , btn: ['确定', '重置']
+                        , btnAlign: 'c' //按钮居中
+                        , yes: function () {
+                            var myins = form.val('myins');
+                            if (myins.myPensionRate == "" || myins.myPensionBase == "" || myins.myMedRate == "" || myins.myMedBase == "" ||
+                                myins.myUnempRate == "" || myins.myUnempRate == "" || myins.myHouseRate == "" || myins.myHouseBase == "") {
+                                if (form.val('myselectCity').mycity == "0") {
+                                    layer.msg("请选择省会城市！");
+                                }
+                                layer.msg("请选择比例与基数！");
+                            } else if (parseFloat(myins.mypensionRate) < 0 || parseFloat(myins.myPensionBase) < 0 || parseFloat(myins.myMedRate) < 0 || parseFloat(myins.myMedBase) < 0 ||
+                                parseFloat(myins.myUnempRate) < 0 || parseFloat(myins.myUnempRate) < 0 || parseFloat(myins.myHouseRate) < 0 || parseFloat(myins.myHouseBase) < 0) {
+                                layer.msg("请填写正确的数据！");
                             }
-                            layer.msg("请选择比例与基数！");
-                        }
-                        else {
-                            var myinsurance = parseFloat(myins.myPensionRate) * parseFloat(myins.myPensionBase)
-                                + parseFloat(myins.myMedRate) * parseFloat(myins.myMedBase)
-                                + parseFloat(myins.myUnempRate) * parseFloat(myins.myUnempBase)
-                                + parseFloat(myins.myHouseRate) * parseFloat(myins.myHouseBase);
-                            form.val('info', {
-                                "my_ins": Math.round(myinsurance) / 100,
-                            });
-                            layer.closeAll();
-                        }
-                    }
-                });
-            },
-            mateinsurance: function (othis) {
-                layer.open({
-                    type: 1
-                    , title: '计算社会保险个人缴纳部分'
-                    , area: '460px;'
-                    , shade: 0.3
-                    , id: 'LAY_insurance' //防止重复弹出
-                    , content: $("#hidden-area-2")
-                    , btn: ['确定']
-                    , btnAlign: 'c' //按钮居中
-                    , yes: function () {
-                        var mateins = form.val('mateins');
-                        if (mateins.matePensionRate == "" || mateins.matePensionBase == "" || mateins.mateMedRate == "" || mateins.mateMedBase == "" ||
-                            mateins.mateUnempRate == "" || mateins.myUnempRate == "" || mateins.mateHouseRate == "" || mateins.mateHouseBase == "") {
-                            if (form.val('mateselectCity').matecity == "0") {
-                                layer.msg("请选择省会城市！");
+                            else {
+                                var myinsurance = parseFloat(myins.myPensionRate) * parseFloat(myins.myPensionBase)
+                                    + parseFloat(myins.myMedRate) * parseFloat(myins.myMedBase)
+                                    + parseFloat(myins.myUnempRate) * parseFloat(myins.myUnempBase)
+                                    + parseFloat(myins.myHouseRate) * parseFloat(myins.myHouseBase);
+                                form.val('info', {
+                                    "my_ins": Math.round(myinsurance) / 100,
+                                });
+                                layer.closeAll();
                             }
-                            layer.msg("请选择比例与基数！");
                         }
-                        else {
-                            var mateinsurance = parseFloat(mateins.matePensionRate) * parseFloat(mateins.matePensionBase)
-                                + parseFloat(mateins.mateMedRate) * parseFloat(mateins.mateMedBase)
-                                + parseFloat(mateins.mateUnempRate) * parseFloat(mateins.mateUnempBase)
-                                + parseFloat(mateins.mateHouseRate) * parseFloat(mateins.mateHouseBase);
-                            form.val('info', {
-                                "mate_ins": Math.round(mateinsurance) / 100,
+                        , btn2: function () {
+                            //清空表格
+                            form.val('myselectCity', {
+                                "mycity": 0,
                             });
-                            layer.closeAll();
+                            form.val('myins', {
+                                "myPensionRate": "",
+                                "myMedRate": "",
+                                "myUnempRate": "",
+                                "myHouseRate": "",
+                                "myPensionBase": "",
+                                "myMedBase": "",
+                                "myUnempBase": "",
+                                "myHouseBase": "",
+                            });
                         }
-                    }
-                });
-            }
-        };
-
-        $('#myinsurance').on('click', function () {
-            //清空表格
-            form.val('myselectCity', {
-                "mycity": 0,
-            });
-            form.val('myins', {
-                "myPensionRate": "",
-                "myMedRate": "",
-                "myUnempRate": "",
-                "myHouseRate": "",
-                "myPensionBase": "",
-                "myMedBase": "",
-                "myUnempBase": "",
-                "myHouseBase": "",
-            });
-            if (form.val('info').my_salary == "") {
-                layer.msg("请填写您的税前月薪");
-                return false;
-            }
-            var othis = $(this), method = othis.data('method');
-            active[method] ? active[method].call(this, othis) : '';
-        });
-
-        $('#mateinsurance').on('click', function () {
-            //清空表格
-            form.val('mateselectCity', {
-                "matecity": 0,
-            });
-            form.val('mateins', {
-                "matePensionRate": "",
-                "mateMedRate": "",
-                "mateUnempRate": "",
-                "mateHouseRate": "",
-                "matePensionBase": "",
-                "mateMedBase": "",
-                "mateUnempBase": "",
-                "mateHouseBase": "",
-            });
-            if (form.val('info').mate_salary == "") {
-                layer.msg("请填写配偶的税前月薪");
-                return false;
-            }
-            var othis = $(this), method = othis.data('method');
-            active[method] ? active[method].call(this, othis) : '';
-        });
-
-        form.on('checkbox(theold)', function (data) {
-            if (form.val('special').theold == "theold") {
-                layer.open({
-                    type: 1
-                    , title: '赡养老人扣除部分'
-                    , area: '350px;'
-                    , shade: 0.3
-                    , id: 'LAY_theold' //防止重复弹出
-                    , content: $("#hidden-area-3")
-                    , btn: ['确定']
-                    , btnAlign: 'c' //按钮居中
-                    , yes: function () {
-                        layer.closeAll();
-                    }
-                });
-            } else {
-                form.val('parent', {
-                    "myParent": "",
-                    "mateParent": "",
-                })
-            }
-        });
-
-        form.on('checkbox(children)', function (data) {
-            if (form.val('special').children == "children") {
-                layer.open({
-                    type: 1
-                    , title: '子女教育扣除部分'
-                    , area: '260px;'
-                    , shade: 0.3
-                    , id: 'LAY_children' //防止重复弹出
-                    , content: $("#hidden-area-4")
-                    , btn: ['确定']
-                    , btnAlign: 'c' //按钮居中
-                    , yes: function () {
-                    	if (form.val('kids').numberOfKids < 1) {
-                            form.val('special', {
-                                "children": "",
-                            })
-                        }
-                        layer.closeAll();
-                    }
-                });
-            } else {
-                form.val('kids', {
-                    "numberOfKids": "",
-                })
-            }
-        });
-
-        form.on('checkbox(house)', function (data) {
-            if (form.val('special').house == "house") {
-                layer.open({
-                    type: 1
-                    , title: '住房情况扣除部分'
-                    , area: '350px;'
-                    , shade: 0.3
-                    , id: 'LAY_house' //防止重复弹出
-                    , content: $("#hidden-area-5")
-                    , btn: ['确定']
-                    , btnAlign: 'c' //按钮居中
-                    , yes: function () {
-                    	if (form.val('livein').home == undefined || form.val('livein').home == "") {
-                            form.val('special', {
-                                "house": "",
-                            })
-                        }
-                        layer.closeAll();
-                    }
-                });
-            } else {
-                form.val('livein', {
-                    "home": "",
-                })
-            }
-        });
-
-        form.on('checkbox(education)', function (data) {
-            if (form.val('special').education == "education") {
-                layer.open({
-                    type: 1
-                    , title: '继续教育扣除部分'
-                    , area: '400px;'
-                    , shade: 0.3
-                    , id: 'LAY_house' //防止重复弹出
-                    , content: $("#hidden-area-6")
-                    , btn: ['确定']
-                    , btnAlign: 'c' //按钮居中
-                    , yes: function () {
-                        layer.closeAll();
-                    }
-                });
-            } else {
-                form.val('study', {
-                    "myrecordEducation": "",
-                    "myskillEducation": "",
-                    "materecordEducation": "",
-                    "mateskillEducation": "",
-                })
-            }
-        });
-
-        //显示我的社保
-        form.on('select(mycity)', function (data) {
-            var region = data.value;
-            $.ajax({
-                url: "<%=basePath%>selectByRegion",
-                data: {
-                    region: region,
-                },
-                type: "post",
-                async: false,
-                success: function (data) {
-                    var mysalary = parseFloat(form.val('info').my_salary);
-                    var myPensionRate = data.pension.substring(0, data.pension.length - 1);
-                    var myPensionBase;
-                    var myMedRate = data.med.substring(0, data.med.length - 1);
-                    var myMedBase;
-                    var myUnempRate = data.unemp.substring(0, data.unemp.length - 1);
-                    var myUnempBase;
-                    var myHouseRate = data.house.substring(0, data.house.length - 1);
-                    var myHouseBase;
-
-                    //养老基数
-                    if (mysalary < parseFloat(data.lpension)) myPensionBase = parseFloat(data.lpension);
-                    else if (mysalary > parseFloat(data.upension)) myPensionBase = parseFloat(data.upension);
-                    else myPensionBase = mysalary;
-                    //医疗基数
-                    if (mysalary < parseFloat(data.lmed)) myMedBase = parseFloat(data.lmed);
-                    else if (mysalary > parseFloat(data.umed)) myMedBase = parseFloat(data.umed);
-                    else myMedBase = mysalary;
-                    //失业基数
-                    if (mysalary < parseFloat(data.lunemp)) myUnempBase = parseFloat(data.lunemp);
-                    else if (mysalary > parseFloat(data.uunemp)) myUnempBase = parseFloat(data.uunemp);
-                    else myUnempBase = mysalary;
-                    //公积金基数
-                    if (mysalary < parseFloat(data.lhouse)) myHouseBase = parseFloat(data.lhouse);
-                    else if (mysalary > parseFloat(data.uhouse)) myHouseBase = parseFloat(data.uhouse);
-                    else myHouseBase = mysalary;
-
-                    form.val('myins', {
-                        "myPensionRate": myPensionRate,
-                        "myMedRate": myMedRate,
-                        "myUnempRate": myUnempRate,
-                        "myHouseRate": myHouseRate,
-                        "myPensionBase": myPensionBase,
-                        "myMedBase": myMedBase,
-                        "myUnempBase": myUnempBase,
-                        "myHouseBase": myHouseBase,
                     });
                 },
-                error: function (data) {
-                    alert("error");
-                }
-            })
-        });
-
-        //显示配偶的社保
-        form.on('select(matecity)', function (data) {
-            var region = data.value;
-            $.ajax({
-                url: "<%=basePath%>selectByRegion",
-                data: {
-                    region: region,
-                },
-                type: "post",
-                async: false,
-                success: function (data) {
-
-                    var matesalary = parseFloat(form.val('info').mate_salary);
-                    var matePensionRate = data.pension.substring(0, data.pension.length - 1);
-                    var matePensionBase;
-                    var mateMedRate = data.med.substring(0, data.med.length - 1);
-                    var mateMedBase;
-                    var mateUnempRate = data.unemp.substring(0, data.unemp.length - 1);
-                    var mateUnempBase;
-                    var mateHouseRate = data.house.substring(0, data.house.length - 1);
-                    var mateHouseBase;
-
-                    //养老基数
-                    if (matesalary < parseFloat(data.lpension)) matePensionBase = parseFloat(data.lpension);
-                    else if (matesalary > parseFloat(data.upension)) matePensionBase = parseFloat(data.upension);
-                    else matePensionBase = matesalary;
-                    //医疗基数
-                    if (matesalary < parseFloat(data.lmed)) mateMedBase = parseFloat(data.lmed);
-                    else if (matesalary > parseFloat(data.umed)) mateMedBase = parseFloat(data.umed);
-                    else mateMedBase = matesalary;
-                    //失业基数
-                    if (matesalary < parseFloat(data.lunemp)) mateUnempBase = parseFloat(data.lunemp);
-                    else if (matesalary > parseFloat(data.uunemp)) mateUnempBase = parseFloat(data.uunemp);
-                    else mateUnempBase = matesalary;
-                    //公积金基数
-                    if (matesalary < parseFloat(data.lhouse)) mateHouseBase = parseFloat(data.lhouse);
-                    else if (matesalary > parseFloat(data.uhouse)) mateHouseBase = parseFloat(data.uhouse);
-                    else mateHouseBase = matesalary;
-
-                    form.val('mateins', {
-                        "matePensionRate": matePensionRate,
-                        "mateMedRate": mateMedRate,
-                        "mateUnempRate": mateUnempRate,
-                        "mateHouseRate": mateHouseRate,
-                        "matePensionBase": matePensionBase,
-                        "mateMedBase": mateMedBase,
-                        "mateUnempBase": mateUnempBase,
-                        "mateHouseBase": mateHouseBase,
+                mateinsurance: function (othis) {
+                    layer.open({
+                        type: 1
+                        , title: '计算社会保险个人缴纳部分'
+                        , area: '460px;'
+                        , shade: 0.3
+                        , id: 'LAY_insurance' //防止重复弹出
+                        , content: $("#hidden-area-2")
+                        , btn: ['确定', '重置']
+                        , btnAlign: 'c' //按钮居中
+                        , yes: function () {
+                            var mateins = form.val('mateins');
+                            if (mateins.matePensionRate == "" || mateins.matePensionBase == "" || mateins.mateMedRate == "" || mateins.mateMedBase == "" ||
+                                mateins.mateUnempRate == "" || mateins.myUnempRate == "" || mateins.mateHouseRate == "" || mateins.mateHouseBase == "") {
+                                if (form.val('mateselectCity').matecity == "0") {
+                                    layer.msg("请选择省会城市！");
+                                }
+                                layer.msg("请选择比例与基数！");
+                            } else if (parseFloat(mateins.matepensionRate) < 0 || parseFloat(mateins.matePensionBase) < 0 || parseFloat(mateins.mateMedRate) < 0 || parseFloat(mateins.mateMedBase) < 0 ||
+                                parseFloat(mateins.mateUnempRate) < 0 || parseFloat(mateins.mateUnempRate) < 0 || parseFloat(mateins.mateHouseRate) < 0 || parseFloat(mateins.mateHouseBase) < 0) {
+                                layer.msg("请填写正确的数据！");
+                            }
+                            else {
+                                var mateinsurance = parseFloat(mateins.matePensionRate) * parseFloat(mateins.matePensionBase)
+                                    + parseFloat(mateins.mateMedRate) * parseFloat(mateins.mateMedBase)
+                                    + parseFloat(mateins.mateUnempRate) * parseFloat(mateins.mateUnempBase)
+                                    + parseFloat(mateins.mateHouseRate) * parseFloat(mateins.mateHouseBase);
+                                form.val('info', {
+                                    "mate_ins": Math.round(mateinsurance) / 100,
+                                });
+                                layer.closeAll();
+                            }
+                        }
+                        , btn2: function () {
+                            //清空表格
+                            form.val('mateselectCity', {
+                                "matecity": 0,
+                            });
+                            form.val('mateins', {
+                                "matePensionRate": "",
+                                "mateMedRate": "",
+                                "mateUnempRate": "",
+                                "mateHouseRate": "",
+                                "matePensionBase": "",
+                                "mateMedBase": "",
+                                "mateUnempBase": "",
+                                "mateHouseBase": "",
+                            });
+                        }
                     });
-                },
-                error: function (data) {
-                    alert("error");
                 }
-            })
-        });
-        
-        $('#optimizing').on('click', function () {
-        	var info = form.val('info');
-            if (info.my_salary == "" || info.my_ins == "" || info.mate_ins == "" || info.mate_salary == "") {
-                layer.msg("请完成基础信息填写！");
-            } else {
+            };
+
+            $('#myinsurance').on('click', function () {
+                if (form.val('info').my_salary == "") {
+                    layer.msg("请填写您的税前月薪");
+                    return false;
+                }
+                var othis = $(this), method = othis.data('method');
+                active[method] ? active[method].call(this, othis) : '';
+            });
+
+            $('#mateinsurance').on('click', function () {
+                if (form.val('info').mate_salary == "") {
+                    layer.msg("请填写配偶的税前月薪");
+                    return false;
+                }
+                var othis = $(this), method = othis.data('method');
+                active[method] ? active[method].call(this, othis) : '';
+            });
+
+            //赡养老人弹出框
+            form.on('checkbox(theold)', function (data) {
+                if (form.val('special').theold == "theold") {
+                    layer.open({
+                        type: 1
+                        , title: '赡养老人扣除部分'
+                        , area: '350px;'
+                        , closeBtn: false
+                        , shade: 0.3
+                        , id: 'LAY_theold' //防止重复弹出
+                        , content: $("#hidden-area-3")
+                        , btn: ['确定']
+                        , btnAlign: 'c' //按钮居中
+                        , yes: function () {
+                            if (parseFloat(form.val('parent').myParent) < 0 || parseFloat(form.val('parent').mateParent) < 0) {
+                                form.val('special', {
+                                    "theold": "",
+                                });
+                                layer.closeAll();
+                            } else if (form.val('parent').myParent == "" && form.val('parent').mateParent == "") {
+                                form.val('special', {
+                                    "theold": "",
+                                });
+                                layer.closeAll();
+                            } else {
+                                layer.closeAll();
+                            }
+                        }
+                    });
+                } else {
+                    form.val('parent', {
+                        "myParent": "",
+                        "mateParent": "",
+                    })
+                }
+            });
+
+            //子女教育弹出框
+            form.on('checkbox(children)', function (data) {
+                if (form.val('special').children == "children") {
+                    layer.open({
+                        type: 1
+                        , title: '子女教育扣除部分'
+                        , area: '260px;'
+                        , closeBtn: false
+                        , shade: 0.3
+                        , id: 'LAY_children' //防止重复弹出
+                        , content: $("#hidden-area-4")
+                        , btn: ['确定']
+                        , btnAlign: 'c' //按钮居中
+                        , yes: function () {
+                            if (form.val('kids').numberOfKids < 1) {
+                                form.val('special', {
+                                    "children": "",
+                                })
+                                layer.closeAll();
+                            } else if (form.val('kids').numberOfKids == "") {
+                                form.val('special', {
+                                    "children": "",
+                                })
+                                layer.closeAll();
+                            } else {
+                                layer.closeAll();
+                            }
+                        }
+                    });
+                } else {
+                    form.val('kids', {
+                        "numberOfKids": "",
+                    })
+                }
+            });
+
+            //住房情况弹出框
+            form.on('checkbox(house)', function (data) {
+                if (form.val('special').house == "house") {
+                    layer.open({
+                        type: 1
+                        , title: '住房情况扣除部分'
+                        , closeBtn: false
+                        , area: '350px;'
+                        , shade: 0.3
+                        , id: 'LAY_house' //防止重复弹出
+                        , content: $("#hidden-area-5")
+                        , btn: ['确定']
+                        , btnAlign: 'c' //按钮居中
+                        , yes: function () {
+                            if (form.val('livein').home == undefined || form.val('livein').home == "") {
+                                form.val('special', {
+                                    "house": "",
+                                })
+                            }
+                            layer.closeAll();
+                        }
+                    });
+                }
+            });
+
+            //继续教育弹出框
+            form.on('checkbox(education)', function (data) {
+                if (form.val('special').education == "education") {
+                    layer.open({
+                        type: 1
+                        , title: '继续教育扣除部分'
+                        , area: '400px;'
+                        , closeBtn: false
+                        , shade: 0.3
+                        , id: 'LAY_house' //防止重复弹出
+                        , content: $("#hidden-area-6")
+                        , btn: ['确定']
+                        , btnAlign: 'c' //按钮居中
+                        , yes: function () {
+                            if (form.val('study').myrecordEducation == "" && form.val('study').myskillEducation == "" &&
+                                form.val('study').mateskillEducation == "" && form.val('study').materecordEducation == "") {
+                                form.val('special', {
+                                    "education": "",
+                                })
+                            }
+                            layer.closeAll();
+                        }
+                    });
+                } else {
+                    form.val('study', {
+                        "myrecordEducation": "",
+                        "myskillEducation": "",
+                        "materecordEducation": "",
+                        "mateskillEducation": "",
+                    })
+                }
+            });
+
+            //显示我的社保
+            form.on('select(mycity)', function (data) {
+                var region = data.value;
                 $.ajax({
-                    url: "<%=basePath%>optimizingForHome",
-                    type: "post",
+                    url: "<%=basePath%>selectByRegion",
                     data: {
-                        my_salary: info.my_salary,
-                        my_ins: info.my_ins,
-                        mate_salary: info.mate_salary,
-                        mate_ins: info.mate_ins,
-                        my_parent: form.val('parent').myParent,
-                        mate_parent: form.val('parent').mateParent,
-                        number_kids: form.val('kids').numberOfKids,
-                        home: form.val('livein').home,
-                        myrecordEducation: form.val('study').myrecordEducation,
-                        myskillEducation: form.val('study').myskillEducation,
-                        materecordEducation: form.val('study').materecordEducation,
-                        mateskillEducation: form.val('study').mateskillEducation,
+                        region: region,
                     },
+                    type: "post",
                     async: false,
                     success: function (data) {
+                        var mysalary = parseFloat(form.val('info').my_salary);
+                        var myPensionRate = data.pension.substring(0, data.pension.length - 1);
+                        var myPensionBase;
+                        var myMedRate = data.med.substring(0, data.med.length - 1);
+                        var myMedBase;
+                        var myUnempRate = data.unemp.substring(0, data.unemp.length - 1);
+                        var myUnempBase;
+                        var myHouseRate = data.house.substring(0, data.house.length - 1);
+                        var myHouseBase;
 
+                        //养老基数
+                        if (mysalary < parseFloat(data.lpension)) myPensionBase = parseFloat(data.lpension);
+                        else if (mysalary > parseFloat(data.upension)) myPensionBase = parseFloat(data.upension);
+                        else myPensionBase = mysalary;
+                        //医疗基数
+                        if (mysalary < parseFloat(data.lmed)) myMedBase = parseFloat(data.lmed);
+                        else if (mysalary > parseFloat(data.umed)) myMedBase = parseFloat(data.umed);
+                        else myMedBase = mysalary;
+                        //失业基数
+                        if (mysalary < parseFloat(data.lunemp)) myUnempBase = parseFloat(data.lunemp);
+                        else if (mysalary > parseFloat(data.uunemp)) myUnempBase = parseFloat(data.uunemp);
+                        else myUnempBase = mysalary;
+                        //公积金基数
+                        if (mysalary < parseFloat(data.lhouse)) myHouseBase = parseFloat(data.lhouse);
+                        else if (mysalary > parseFloat(data.uhouse)) myHouseBase = parseFloat(data.uhouse);
+                        else myHouseBase = mysalary;
 
+                        form.val('myins', {
+                            "myPensionRate": myPensionRate,
+                            "myMedRate": myMedRate,
+                            "myUnempRate": myUnempRate,
+                            "myHouseRate": myHouseRate,
+                            "myPensionBase": myPensionBase,
+                            "myMedBase": myMedBase,
+                            "myUnempBase": myUnempBase,
+                            "myHouseBase": myHouseBase,
+                        });
                     },
                     error: function (data) {
                         alert("error");
                     }
                 })
-            }
+            });
+
+            //显示配偶的社保
+            form.on('select(matecity)', function (data) {
+                var region = data.value;
+                $.ajax({
+                    url: "<%=basePath%>selectByRegion",
+                    data: {
+                        region: region,
+                    },
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+
+                        var matesalary = parseFloat(form.val('info').mate_salary);
+                        var matePensionRate = data.pension.substring(0, data.pension.length - 1);
+                        var matePensionBase;
+                        var mateMedRate = data.med.substring(0, data.med.length - 1);
+                        var mateMedBase;
+                        var mateUnempRate = data.unemp.substring(0, data.unemp.length - 1);
+                        var mateUnempBase;
+                        var mateHouseRate = data.house.substring(0, data.house.length - 1);
+                        var mateHouseBase;
+
+                        //养老基数
+                        if (matesalary < parseFloat(data.lpension)) matePensionBase = parseFloat(data.lpension);
+                        else if (matesalary > parseFloat(data.upension)) matePensionBase = parseFloat(data.upension);
+                        else matePensionBase = matesalary;
+                        //医疗基数
+                        if (matesalary < parseFloat(data.lmed)) mateMedBase = parseFloat(data.lmed);
+                        else if (matesalary > parseFloat(data.umed)) mateMedBase = parseFloat(data.umed);
+                        else mateMedBase = matesalary;
+                        //失业基数
+                        if (matesalary < parseFloat(data.lunemp)) mateUnempBase = parseFloat(data.lunemp);
+                        else if (matesalary > parseFloat(data.uunemp)) mateUnempBase = parseFloat(data.uunemp);
+                        else mateUnempBase = matesalary;
+                        //公积金基数
+                        if (matesalary < parseFloat(data.lhouse)) mateHouseBase = parseFloat(data.lhouse);
+                        else if (matesalary > parseFloat(data.uhouse)) mateHouseBase = parseFloat(data.uhouse);
+                        else mateHouseBase = matesalary;
+
+                        form.val('mateins', {
+                            "matePensionRate": matePensionRate,
+                            "mateMedRate": mateMedRate,
+                            "mateUnempRate": mateUnempRate,
+                            "mateHouseRate": mateHouseRate,
+                            "matePensionBase": matePensionBase,
+                            "mateMedBase": mateMedBase,
+                            "mateUnempBase": mateUnempBase,
+                            "mateHouseBase": mateHouseBase,
+                        });
+                    },
+                    error: function (data) {
+                        alert("error");
+                    }
+                })
+            });
+
+            $('#optimizing').on('click', function () {
+                var info = form.val('info');
+                var data=[], mydata=[], matedata=[];
+                if (info.my_salary == "" || info.my_ins == "" || info.mate_ins == "" || info.mate_salary == "") {
+                    layer.msg("请完成基础信息填写！");
+                    return false;
+                } if (parseFloat(info.my_salary) < 0 || parseFloat(info.my_ins) < 0 || parseFloat(info.mate_ins) < 0 || parseFloat(info.mate_salary) < 0) {
+                    layer.msg("请填写正确数据！");
+                    return false;
+                } else {
+                    $.ajax({
+                        url: "<%=basePath%>optimizingForHome",
+                        type: "post",
+                        data: {
+                            my_salary: info.my_salary,
+                            my_ins: info.my_ins,
+                            mate_salary: info.mate_salary,
+                            mate_ins: info.mate_ins,
+                            my_parent: form.val('parent').myParent,
+                            mate_parent: form.val('parent').mateParent,
+                            number_kids: form.val('kids').numberOfKids,
+                            homeselect: form.val('special').house,
+                            home: form.val('livein').home,
+                            myrecordEducation: form.val('study').myrecordEducation,
+                            myskillEducation: form.val('study').myskillEducation,
+                            materecordEducation: form.val('study').materecordEducation,
+                            mateskillEducation: form.val('study').mateskillEducation,
+                        },
+                        async: false,
+                        success: function (data) {
+                            console.log(data);
+                            
+                            var param_kid = -1, param_home = -1;
+                            if (data.who_for_kids == "mate") {
+                                param_kid = 0;
+                            } else if (data.who_for_kids == "m") {
+                                param_kid = 1;
+                            } else if (data.who_for_kids == "mandmate") {
+                                param_kid = 0.5;
+                            }
+                            if (data.who_for_home == "mate") {
+                                param_home = 0;
+                            } else if (data.who_for_home == "m") {
+                                param_home = 1;
+                            } else if (data.who_for_home == "mandmate") {
+                                param_home = 0.5;
+                            }
+
+                            var mesum = (param_kid == -1) ? 0 : param_kid * data.for_kids;
+                            mesum += (param_home == -1) ? 0 : param_home * data.for_home;
+                            mesum += data.my_parent + data.myskillEducation + data.myrecordEducation;
+                            var matesum = (param_kid == -1) ? 0 : (1 - param_kid) * data.for_kids;
+                            matesum += (param_home == -1) ? 0 : (1 - param_home) * data.for_home;
+                            matesum += data.mate_parent + data.mateskillEducation + data.materecordEducation;
+                            
+                            //从应纳税所得额计算纳税额
+                            $.ajax({
+                                url: "<%=basePath%>sum",
+                                type: "post",
+                                data: {
+                                    taxable_salary: info.my_salary*12 - info.my_ins*12 - mesum - 5000*12,
+                                    taxable_author: 0,
+                                    taxable_right:0,
+                                    taxable_labour:0,
+                                },
+                                async: false,
+                                success: function (data) {
+                                    console.log(data);
+                                    mydata = data;
+                                },
+                                error: function (data) {
+                                    alert("error");
+                                }
+                            });
+                            
+                          //从应纳税所得额计算纳税额
+                            $.ajax({
+                                url: "<%=basePath%>sum",
+                                type: "post",
+                                data: {
+                                    taxable_salary: info.mate_salary*12 - info.mate_ins*12 - matesum - 5000*12,
+                                    taxable_author: 0,
+                                    taxable_right:0,
+                                    taxable_labour:0,
+                                },
+                                async: false,
+                                success: function (data) {
+                                    console.log(data);
+                                    matedata = data;
+                                },
+                                error: function (data) {
+                                    alert("error");
+                                }
+                            });
+                          
+                            
+                            table.render({
+                                elem: '#result'
+                                , cols: [[ //标题栏
+                                    { field: 'title', title: '' }
+                                    , { field: 'me', title: '我' }
+                                    , { field: 'mate', title: '配偶' }
+                                ]]
+                                , data: [{
+                                    "title": "税前收入",
+                                    "me": (info.my_salary * 12).toFixed(2),
+                                    "mate": (info.mate_salary * 12).toFixed(2),
+                                }, {
+                                    "title": "子女教育扣除",
+                                    "me": (param_kid == -1 ? 0 : param_kid * data.for_kids).toFixed(2),
+                                    "mate": (param_kid == -1 ? 0 : (1 - param_kid) * data.for_kids).toFixed(2),
+                                }, {
+                                    "title": "住房情况扣除",
+                                    "me": (param_home == -1 ? 0 : param_home * data.for_home).toFixed(2),
+                                    "mate": (param_home == -1 ? 0 : (1 - param_home) * data.for_home).toFixed(2),
+                                }, {
+                                    "title": "赡养老人扣除",
+                                    "me": data.my_parent.toFixed(2),
+                                    "mate": data.mate_parent.toFixed(2),
+                                }, {
+                                    "title": "继续教育扣除",
+                                    "me": (data.myskillEducation + data.myrecordEducation).toFixed(2),
+                                    "mate": (data.mateskillEducation + data.materecordEducation).toFixed(2),
+                                }, {
+                                    "title": "扣除合计",
+                                    "me": mesum.toFixed(2),
+                                    "mate": matesum.toFixed(2),
+                                }, {
+                                    "title": "年纳税额",
+                                    "me": mydata.tax_value.toFixed(2),
+                                    "mate": matedata.tax_value.toFixed(2),
+                                }]
+                            });
+
+                            
+                            var dataForChart = [];
+                            dataForChart.push({
+                                name: "我",
+                                value: mesum.toFixed(2)
+                            });
+                            dataForChart.push({
+                                name: "配偶",
+                                value: matesum.toFixed(2)
+                            });
+                            var Chart = echarts.init(document.getElementById('echart-area'));
+                            option = {
+                                title: {
+                                    text: '扣除分配比例',
+                                    x: 'center'
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+                                legend: {
+                                    orient: 'vertical',
+                                    left: 'left',
+                                },
+                                series: [
+                                    {
+                                        name: '扣除',
+                                        type: 'pie',
+                                        radius: '55%',
+                                        center: ['50%', '60%'],
+                                        data: dataForChart,
+                                        itemStyle: {
+                                            emphasis: {
+                                                shadowBlur: 10,
+                                                shadowOffsetX: 0,
+                                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                            }
+                                        }
+                                    }
+                                ]
+                            };
+
+                            Chart.setOption(option);
+                        },
+                        error: function (data) {
+                            alert("error");
+                        }
+                    });
+                    
+                   
+                }
+            });
+            
+            
+           
+
         });
 
-    });
+        //提取城市数据
+        function updatedata() {
+            $.ajax({
+                url: "<%=basePath%>region",
+                type: "post",
+                async: false,
+                success: function (data) {
+                    console.log(data);
+                    $("#mycitydata").append(template("my-city-select", { data: data }));
+                    $("#matecitydata").append(template("mate-city-select", { data: data }));
+                },
+                error: function (data) {
+                    alert("error");
+                }
+            })
+        }
 
-    //提取城市数据
-    function updatedata() {
-        $.ajax({
-            url: "<%=basePath%>region",
-            type: "post",
-            async: false,
-            success: function (data) {
-                console.log(data);
-                $("#mycitydata").append(template("my-city-select", { data: data }));
-                $("#matecitydata").append(template("mate-city-select", { data: data }));
-            },
-            error: function (data) {
-                alert("error");
-            }
-        })
-    }
-
-    updatedata();
-
+        updatedata();
 
     </script>
-
-
 
 </body>
 

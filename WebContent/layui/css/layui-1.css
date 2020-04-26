@@ -2201,7 +2201,6 @@ hr {
 }
 
 .layui-btn-primary:hover {
-	border-color: #009688;
 	color: #333
 }
 
@@ -2508,7 +2507,7 @@ hr {
 }
 
 .layui-form-select dl dd.layui-this {
-	background-color: #5FB878;
+	background-color: #73c7ff;
 	color: #fff
 }
 
@@ -2780,7 +2779,7 @@ hr {
 
 .layui-form-radio>i:hover,
 .layui-form-radioed>i {
-	color: #5FB878
+	color: #73c7ff;
 }
 
 .layui-radio-disbaled>i {

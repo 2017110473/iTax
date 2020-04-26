@@ -33,19 +33,17 @@ public class yeartax extends HttpServlet{
 	}
 	
 	  public void doPost(HttpServletRequest request, HttpServletResponse response) {
-		  	//double sum_salary = Double.parseDouble(request.getParameter("sumSalary"));
-		  	//double bonus = Double.parseDouble(request.getParameter("bonus"));
-			//double social_ins = Double.parseDouble(request.getParameter("socialIns"));
-			//double special = Double.parseDouble(request.getParameter("special"));
-			//double start = Double.parseDouble(request.getParameter("start"));
-			
-			double sum_salary = 100000;
-			double bonus = 100000;
-			double social_ins = 2220;
-			double special = 2000;
-			double start = 5000;
+
+		  	double sum_salary = Double.parseDouble(request.getParameter("sumSalary"));
+		  	double bonus = Double.parseDouble(request.getParameter("bonus"));
+			double social_ins = Double.parseDouble(request.getParameter("socialIns"));
+			double special = Double.parseDouble(request.getParameter("special"));
+			double start = Double.parseDouble(request.getParameter("start"));
+
 			//月薪应纳税所得额
 			double taxable_salary = sum_salary - social_ins * 12 - special * 12 -  start * 12;
+			
+			//避免出现负数
 			taxable_salary = taxable_salary > 0 ? taxable_salary : 0;
 			//税率、速算扣除数、界限
 			Double[] tax = new Double[] {0.0, 0.03, 0.10, 0.20, 0.25, 0.30, 0.35, 0.45}; 
@@ -79,11 +77,12 @@ public class yeartax extends HttpServlet{
 		          }
 		          
 		          double tax_bonus = bonus * tax[i-1] - deductionforBonus[i-1];
-
+		          
+		          result.put("taxable_salary", taxable_salary);
 		          result.put("tax_salary", tax_salary);
 		          result.put("tax_bonus",tax_bonus);
 		          result.put("pretax_income", sum_salary + bonus);
-		          result.put("aftertax_income", sum_salary + bonus - tax_salary - tax_bonus);
+		          result.put("aftertax_income", sum_salary + bonus - tax_salary - tax_bonus - social_ins * 12);
 		          
 		          System.out.println(result);
 		          String CONTENT_TYPE = "application/json; charset = GBK";

@@ -36,7 +36,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <!-- Nav Link -->
-                            <a class="nav-link" data-scroll href="../index.html">主页<span
+                            <a class="nav-link" data-scroll href="../index.jsp">主页<span
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
@@ -45,13 +45,13 @@
                                 aria-haspopup="true" aria-expanded="false">个税计算</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!-- Dropdown Choice -->
-                                <a class="dropdown-item" data-scroll href="../compute/gongzi.html">工资薪金 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/nianzhongjiang.html">年终奖 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/laowu.html">劳务报酬 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/gaochou.html">稿酬所得 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/texu.html">特许使用 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/jingying.html">经营所得 </a>
-                                <a class="dropdown-item" data-scroll href="../compute/qita.html">其他所得 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/gongzi.jsp">工资薪金 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/nianzhongjiang.jsp">年终奖 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/laowu.jsp">劳务报酬 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/gaochou.jsp">稿酬所得 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/texu.jsp">特许使用 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/jingying.jsp">经营所得 </a>
+                                <a class="dropdown-item" data-scroll href="../compute/qita.jsp">其他所得 </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -60,8 +60,8 @@
                                 aria-haspopup="true" aria-expanded="false">个税对比</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!-- Dropdown Choice -->
-                                <a class="dropdown-item" data-scroll href="../comparison/salary.html">薪资对比 </a>
-                                <a class="dropdown-item" data-scroll href="../comparison/final.html">汇算对比 </a>
+                                <a class="dropdown-item" data-scroll href="../comparison/salary.jsp">薪资对比 </a>
+                                <a class="dropdown-item" data-scroll href="../comparison/final.jsp">汇算对比 </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown active">
@@ -69,20 +69,16 @@
                                 aria-haspopup="true" aria-expanded="false">个税优化</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!-- Dropdown Choice -->
-                                <a class="dropdown-item" data-scroll href="forsalary.html">薪资优化 </a>
-                                <a class="dropdown-item" data-scroll href="forhome.html">家庭优化 </a>
+                                <a class="dropdown-item" data-scroll href="forsalary.jsp">薪资优化 </a>
+                                <a class="dropdown-item" data-scroll href="forhome.jsp">家庭优化 </a>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <!-- Nav Link -->
-                            <a class="nav-link" data-scroll href="#">其他</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
     </header>
-    <!-- TOP SECTION -->
+    <!-- 标题 -->
     <div class="container-fluid aboutimg">
         <img src="../images/aboutimg.svg" alt="">
         <div class="container">
@@ -108,15 +104,15 @@
                 <div class="col-12 col-sm-6 col-lg-6">
                     <div class="input-box">
                         <!-- Title -->
-                        <h3>个人年收入清单</h3>
+                        <h3>个人薪金信息清单</h3>
                         <!-- Replace Patch to Image Under -->
                         <div class="in-box">
 
-                            <form class=" layui-form" action="" lay-filter="info"  style="margin-top:30px">
+                            <form class=" layui-form" action="" lay-filter="info" style="margin-top:30px">
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">税前薪金</label>
                                     <div class="layui-input-block">
-                                        <input type="number" name="salary" lay-verify="required"  placeholder="按月填写"
+                                        <input type="number" name="salary" lay-verify="required" placeholder="按月填写"
                                             autocomplete="off" class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
@@ -124,96 +120,61 @@
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">年终奖金</label>
                                     <div class="layui-input-block">
-                                        <input type="number" name="bonus" placeholder="按年填写"
-                                            autocomplete="off" class="layui-input">
+                                        <input type="number" name="bonus" placeholder="按年填写" autocomplete="off"
+                                            class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
                                 </div>
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">社会保险</label>
                                     <div class="layui-input-block">
-                                        <input type="number" name="socialIns"  placeholder="按月填写"
-                                            autocomplete="off" class="layui-input">
+                                        <input type="number" name="socialIns" placeholder="按月填写" autocomplete="off"
+                                            class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
                                     <label class="input-label layui-form-label"
                                         style="font-size: 10px;">填写税前工资之后：</label>
                                     <button data-method="insurance" data-type="auto" type="button"
-                                        class="layui-btn layui-btn-primary layui-btn-xs" lay-submit lay-filter="insuranceBtn"
-                                        style="margin-top: 8px; margin-left:-7px;" id="insurance">计算社会保险</button>
+                                        class="layui-btn layui-btn-primary layui-btn-xs" lay-submit
+                                        lay-filter="insuranceBtn" style="margin-top: 8px; margin-left:-7px;"
+                                        id="insurance">计算社会保险</button>
                                 </div>
                                 <div class="input-item layui-form-item">
                                     <label class="input-label layui-form-label">专项扣除</label>
                                     <div class="layui-input-block">
-                                        <input type="number" name="special" placeholder="按月填写"
-                                            autocomplete="off" class="layui-input">
+                                        <input type="number" name="special" placeholder="按月填写" autocomplete="off"
+                                            class="layui-input">
                                         <label class="yuan-label">元</label>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+                    <!--优化按钮-->
                     <div class="hero-btns input-btn">
                         <a id="optimazation">进行优化</a>
                     </div>
                 </div>
+                <!--结果-->
                 <div class="col-12 col-sm-6 col-lg-6">
                     <div class="block">
                         <h3>优化结果</h3>
-                        <!-- input Info -->
-                        <p>可帮你节税：</p>
-                        <h3>1000元</h3>
-                        <!-- Title -->
-                        <h3>最优方案</h3>
-                        <!-- input Info -->
                         <div>
-                            <div class="proportion"> </div>
-                            <p>年纳税总额：</p>
-                        </div>
-                        <!-- Title -->
-                        <h3>对比详情</h3>
-                        <!-- input Info -->
-                        <div>
-                            <table class="layui-table" lay-size="lg">
+                            <table class="layui-table" lay-size="lg" id="result">
                                 <colgroup>
                                     <col>
                                     <col width="100">
                                     <col width="100">
                                     <col width="100">
                                 </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>类别</th>
-                                        <th>原方案</th>
-                                        <th>调整</th>
-                                        <th>优化方案</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>月工资</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>年终奖</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>年纳税额</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
 
-
-                                </tbody>
                             </table>
                         </div>
-                        <!-- Title -->
+                        <!--图形展示-->
+                        <div>
+                            <div id="echart-area" style="width:100%;height:300px; margin-top:80px"> </div>
+                        </div>
+
 
                     </div>
                 </div>
@@ -238,13 +199,13 @@
 
     <!--弹出框-->
     <div class="in-box" id="hidden-area" style="padding: 10px;">
-		<!-- 城市选择 -->
+        <!-- 城市选择 -->
         <form class="layui-form" action="" lay-filter="selectCity">
             <div class="select-item layui-form-item">
                 <label class="input-label layui-form-label">选择城市</label>
                 <div class="layui-input-block" id="citydata">
                 </div>
-                    <script type="text/html" id="city-select">
+                <script type="text/html" id="city-select">
 					<select name="city"  lay-filter="city" lay-search="">
 						<option value="0" selected="">请选择或搜索省会城市</option>
                     {{each data value i}}
@@ -254,8 +215,8 @@
                		</script>
             </div>
         </form>
-        
-       <!-- 社会保险相关信息 -->
+
+        <!-- 社会保险相关信息 -->
         <form class=" layui-form" action="" lay-filter="ins">
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label" style="font-weight:bolder;">五险一金:</label>
@@ -265,7 +226,7 @@
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label">养老</label>
                 <div class="layui-input-block">
-                    <input type="text" name="pensionRate"  placeholder="" autocomplete="off"
+                    <input type="text" name="pensionRate" placeholder="" autocomplete="off"
                         class="layui-input changeable" style="width: 50px; padding-left: 5px; margin-left: 20px;">
                     <label class="yuan-label">%</label>
                     <input type="text" name="pensionBase" placeholder="" autocomplete="off"
@@ -276,33 +237,33 @@
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label">医疗</label>
                 <div class="layui-input-block">
-                    <input type="text" name="medRate" placeholder="" autocomplete="off"
-                        class="layui-input changeable" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <input type="text" name="medRate" placeholder="" autocomplete="off" class="layui-input changeable"
+                        style="width: 50px; padding-left: 5px; margin-left: 20px;">
                     <label class="yuan-label">%</label>
-                    <input type="text" name="medBase" placeholder="" autocomplete="off"
-                        class="layui-input changeable" style="width: 80px; padding-left: 5px; margin-left: 20px;">
+                    <input type="text" name="medBase" placeholder="" autocomplete="off" class="layui-input changeable"
+                        style="width: 80px; padding-left: 5px; margin-left: 20px;">
                     <label class="yuan-label ">元</label>
                 </div>
             </div>
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label">失业</label>
                 <div class="layui-input-block">
-                    <input type="text" name="unempRate" placeholder="" autocomplete="off"
-                        class="layui-input changeable" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <input type="text" name="unempRate" placeholder="" autocomplete="off" class="layui-input changeable"
+                        style="width: 50px; padding-left: 5px; margin-left: 20px;">
                     <label class="yuan-label">%</label>
-                    <input type="text" name="unempBase" placeholder="" autocomplete="off"
-                        class="layui-input changeable" style="width: 80px; padding-left: 5px; margin-left: 20px;">
+                    <input type="text" name="unempBase" placeholder="" autocomplete="off" class="layui-input changeable"
+                        style="width: 80px; padding-left: 5px; margin-left: 20px;">
                     <label class="yuan-label">元</label>
                 </div>
             </div>
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label">公积金</label>
                 <div class="layui-input-block">
-                    <input type="text" name="houseRate" placeholder="" autocomplete="off"
-                        class="layui-input changeable" style="width: 50px; padding-left: 5px; margin-left: 20px;">
+                    <input type="text" name="houseRate" placeholder="" autocomplete="off" class="layui-input changeable"
+                        style="width: 50px; padding-left: 5px; margin-left: 20px;">
                     <label class="yuan-label">%</label>
-                    <input type="text" name="houseBase" placeholder="" autocomplete="off"
-                        class="layui-input changeable" style="width: 80px; padding-left: 5px; margin-left: 20px;">
+                    <input type="text" name="houseBase" placeholder="" autocomplete="off" class="layui-input changeable"
+                        style="width: 80px; padding-left: 5px; margin-left: 20px;">
                     <label class="yuan-label">元</label>
                 </div>
             </div>
@@ -323,69 +284,97 @@
     <script src="../layui/layui.js" charset="utf-8"></script>
     <script src="../js/jquery.js"></script>
     <script src="../js/template.js"></script>
-    <!-- Scripts Ends -->
+    <script src="https://cdn.bootcss.com/echarts/3.7.2/echarts.min.js"></script>
+
     <script>
-        layui.use(['form','layer'], function () {
-            var form = layui.form, $ = layui.jquery, layer = layui.layer;
+        layui.use(['form', 'layer', 'table'], function () {
+            var form = layui.form, $ = layui.jquery, layer = layui.layer, table = layui.table;
             form.render();
             $("#hidden-area").hide();
-            
-            form.on('select(city)', function (data) {
-            	var region = data.value;
-            	$.ajax({
-            		url:"<%=basePath%>selectByRegion",
-            		data: {
-                 	   region: region,
-                    },
-            		type:"post",
-            		async:false,
-            		success: function(data) {
-            			
-            			var salary = parseFloat(form.val('info').salary);
- 
-            			var pensionRate = data.pension.substring(0, data.pension.length-1);
-            			var pensionBase;
-            			var medRate = data.med.substring(0, data.med.length-1);
-            			var medBase;
-            			var unempRate = data.unemp.substring(0, data.unemp.length-1);
-            			var unempBase;
-						var houseRate = data.house.substring(0, data.house.length-1);
-						var houseBase;
-						
-						//养老基数
-						if(salary < parseFloat(data.lpension)) pensionBase = parseFloat(data.lpension);
-						else if(salary > parseFloat(data.upension)) pensionBase = parseFloat(data.upension);
-						else pensionBase = salary;
-						//医疗基数
-						if(salary < parseFloat(data.lmed)) medBase = parseFloat(data.lmed);
-						else if(salary > parseFloat(data.umed)) medBase = parseFloat(data.umed);
-						else medBase = salary;
-						//失业基数
-						if(salary < parseFloat(data.lunemp)) unempBase = parseFloat(data.lunemp);
-						else if(salary > parseFloat(data.uunemp)) unempBase = parseFloat(data.uunemp);
-						else unempBase = salary;
-						//公积金基数
-						if(salary < parseFloat(data.lhouse)) houseBase = parseFloat(data.lhouse);
-						else if(salary > parseFloat(data.uhouse)) houseBase = parseFloat(data.uhouse);
-						else houseBase = salary;
-						
-            		    form.val('ins', {
-            		        "pensionRate":  pensionRate,
-            		        "medRate":  medRate,
-            		        "unempRate":  unempRate,
-            		        "houseRate":  houseRate,
-            		        "pensionBase":  pensionBase,
-            		        "medBase":  medBase,
-            		        "unempBase":  unempBase,
-            		        "houseBase":  houseBase,
-            		    });
-            		},
-            		error: function(data){
-            			alert("error");
-            		}
-            	})
+            //结果表格
+            table.render({
+                elem: '#result'
+                , cols: [[ //标题栏
+                    { field: 'title', title: '' }
+                    , { field: 'pre', title: '原方案' }
+                    , { field: 'change', title: '调整' }
+                    , { field: 'after', title: '优化方案' }
+                ]]
+                , data: [{
+                    "title": "月工资",
+                    "pre": "",
+                    "change": "",
+                    "after": ""
+                }, {
+                    "title": "年终奖",
+                    "pre": "",
+                    "change": "",
+                    "after": ""
+                }, {
+                    "title": "年纳税额",
+                    "pre": "",
+                    "change": "",
+                    "after": ""
+                }]
             });
-       
+
+            //选择城市
+            form.on('select(city)', function (data) {
+                var region = data.value;
+                $.ajax({
+                    url: "<%=basePath%>selectByRegion",
+                    data: {
+                        region: region,
+                    },
+                    type: "post",
+                    async: false,
+                    success: function (data) {
+
+                        var salary = parseFloat(form.val('info').salary);
+
+                        var pensionRate = data.pension.substring(0, data.pension.length - 1);
+                        var pensionBase;
+                        var medRate = data.med.substring(0, data.med.length - 1);
+                        var medBase;
+                        var unempRate = data.unemp.substring(0, data.unemp.length - 1);
+                        var unempBase;
+                        var houseRate = data.house.substring(0, data.house.length - 1);
+                        var houseBase;
+
+                        //养老基数
+                        if (salary < parseFloat(data.lpension)) pensionBase = parseFloat(data.lpension);
+                        else if (salary > parseFloat(data.upension)) pensionBase = parseFloat(data.upension);
+                        else pensionBase = salary;
+                        //医疗基数
+                        if (salary < parseFloat(data.lmed)) medBase = parseFloat(data.lmed);
+                        else if (salary > parseFloat(data.umed)) medBase = parseFloat(data.umed);
+                        else medBase = salary;
+                        //失业基数
+                        if (salary < parseFloat(data.lunemp)) unempBase = parseFloat(data.lunemp);
+                        else if (salary > parseFloat(data.uunemp)) unempBase = parseFloat(data.uunemp);
+                        else unempBase = salary;
+                        //公积金基数
+                        if (salary < parseFloat(data.lhouse)) houseBase = parseFloat(data.lhouse);
+                        else if (salary > parseFloat(data.uhouse)) houseBase = parseFloat(data.uhouse);
+                        else houseBase = salary;
+
+                        form.val('ins', {
+                            "pensionRate": pensionRate,
+                            "medRate": medRate,
+                            "unempRate": unempRate,
+                            "houseRate": houseRate,
+                            "pensionBase": pensionBase,
+                            "medBase": medBase,
+                            "unempBase": unempBase,
+                            "houseBase": houseBase,
+                        });
+                    },
+                    error: function (data) {
+                        alert("error");
+                    }
+                })
+            });
+
 
             //弹出框触发事件
             var active = {
@@ -397,100 +386,202 @@
                         , shade: 0.3
                         , id: 'LAY_insurance' //防止重复弹出
                         , content: $("#hidden-area")
-                        , btn: ['确定']
+                        , btn: ['确定', '重置']
                         , btnAlign: 'c' //按钮居中
                         , yes: function () {
-                        	var ins = form.val('ins');
-                        	if(ins.pensionRate == "" || ins.pensionBase == "" || ins.medRate == "" || ins.medBase == "" || 
-                        		ins.unempRate =="" || ins.unempRate == "" || ins.houseRate == "" || ins.houseBase == ""){
-                        		if(form.val('selectCity').city == "0"){
-                        			layer.msg("请选择省会城市！");
-                        		}
-                        		layer.msg("请选择比例与基数！");
-                        	}
-                        	else{
-                        		
-                        		var insurance = parseFloat(ins.pensionRate)* parseFloat(ins.pensionBase) 
-                        		+ parseFloat(ins.medRate) * parseFloat(ins.medBase) 
-                        		+parseFloat(ins.unempRate) * parseFloat(ins.unempBase) 
-                        		+parseFloat(ins.houseRate) * parseFloat(ins.houseBase);
-                        		form.val('info',{
-                            		"socialIns": Math.round(insurance)/100,
-                            	});
-                        		layer.closeAll();
-                        	}
+                            var ins = form.val('ins');
+                            if (ins.pensionRate == "" || ins.pensionBase == "" || ins.medRate == "" || ins.medBase == "" ||
+                                ins.unempRate == "" || ins.unempRate == "" || ins.houseRate == "" || ins.houseBase == "") {
+                                if (form.val('selectCity').city == "0") {
+                                    layer.msg("请选择省会城市！");
+                                }
+                                layer.msg("请选择比例与基数！");
+                            } else if (parseFloat(ins.pensionRate) < 0 || parseFloat(ins.pensionBase) < 0 || parseFloat(ins.medRate) < 0 || parseFloat(ins.medBase) < 0 ||
+                                parseFloat(ins.unempRate) < 0 || parseFloat(ins.unempRate) < 0 || parseFloat(ins.houseRate) < 0 || parseFloat(ins.houseBase) < 0) {
+                                layer.msg("请填写正确的数据！");
+                            } else {
+
+                                var insurance = parseFloat(ins.pensionRate) * parseFloat(ins.pensionBase)
+                                    + parseFloat(ins.medRate) * parseFloat(ins.medBase)
+                                    + parseFloat(ins.unempRate) * parseFloat(ins.unempBase)
+                                    + parseFloat(ins.houseRate) * parseFloat(ins.houseBase);
+                                form.val('info', {
+                                    "socialIns": Math.round(insurance) / 100,
+                                });
+                                layer.closeAll();
+                            }
+                        }
+                        , btn2: function () {
+                            //清空表格
+                            form.val('selectCity', {
+                                "city": 0,
+                            });
+                            form.val('ins', {
+                                "pensionRate": "",
+                                "medRate": "",
+                                "unempRate": "",
+                                "houseRate": "",
+                                "pensionBase": "",
+                                "medBase": "",
+                                "unempBase": "",
+                                "houseBase": "",
+                            });
                         }
                     });
                 }
             };
-          
+
+
             $('#insurance').on('click', function () {
-            	//清空表格
-            	form.val('selectCity',{
-            		"city": 0,
-            	});
-        		form.val('ins', {
-    		        "pensionRate": "",
-    		        "medRate":  "",
-    		        "unempRate":  "",
-    		        "houseRate":  "",
-    		        "pensionBase":  "",
-    		        "medBase":  "",
-    		        "unempBase":  "",
-    		        "houseBase":  "",
-    		    });
-            	
-            	if(form.val('info').salary != "") {
-                var othis = $(this), method = othis.data('method');
-                active[method] ? active[method].call(this, othis) : '';
-            	}
-            });  
-            
-            $('#optimazation').on('click', function(){
-            	var info = form.val('info');
-            	if(info.salary == "" || info.bonus == "" || info.socialIns == "" || info.special == ""){
-            		layer.msg("请完成信息填写！");
-            	} else {
-            		var salary = info.salary, bonus = info.bonus, socialIns = info.socialIns, special = info.special;
-            		$.ajax({
-                		url:"<%=basePath%>optimizingForSalary",
-                		data: {
-                     	   preSalary: salary,
-                     	   bonus: bonus,
-                     	   socialIns: socialIns,
-                     	   special: special,
-                     	   start: 5000,
+                if (form.val('info').salary != "") {
+                    var othis = $(this), method = othis.data('method');
+                    active[method] ? active[method].call(this, othis) : '';
+                }
+            });
+
+            $('#optimazation').on('click', function () {
+                var info = form.val('info');
+                var pre, after;
+                if (info.salary == "" || info.bonus == "" || info.socialIns == "" || info.special == "") {
+                    layer.msg("请完成信息填写！");
+                } else if (parseFloat(info.salary) < 0 || parseFloat(info.bonus) < 0 || parseFloat(info.socialIns) < 0 || parseFloat(info.special) < 0) {
+                    layer.msg("请填写正确信息！");
+                } else {
+                    var salary = parseFloat(info.salary), bonus = parseFloat(info.bonus), socialIns = parseFloat(info.socialIns), special = parseFloat(info.special);
+                    //原方案计算
+                    $.ajax({
+                        url: "<%=basePath%>yeartax",
+                        data: {
+                            sumSalary: salary * 12,
+                            bonus: bonus,
+                            socialIns: socialIns,
+                            special: special,
+                            start: 5000,
                         },
-                		type:"post",
-                		async:false,
-                		success: function(data) {
-                			
-                			
-                		},error: function(data){
-                			alert("error");
-                		}
-                		})
-            	}
+                        type: "post",
+                        async: false,
+                        success: function (data) {
+                            console.log(data);
+                            pre = data;
+                        }, error: function (data) {
+                            alert("error");
+                        }
+                    });
+
+                    //方案优化
+                    $.ajax({
+                        url: "<%=basePath%>optimizingForSalary",
+                        data: {
+                            preSalary: salary,
+                            bonus: bonus,
+                            socialIns: socialIns,
+                            special: special,
+                            start: 5000,
+                        },
+                        type: "post",
+                        async: false,
+                        success: function (data) {
+                            console.log(data);
+                            after = data;
+                        }, error: function (data) {
+                            alert("error");
+                        }
+                    });
+
+                    table.render({
+                        elem: '#result'
+                        , cols: [[ //标题栏
+                            { field: 'title', title: '' }
+                            , { field: 'pre', title: '原方案' }
+                            , { field: 'change', title: '调整' }
+                            , { field: 'after', title: '优化方案' }
+                        ]]
+                        , data: [{
+                            "title": "月工资",
+                            "pre": salary.toFixed(2),
+                            "change": (after.after_salary / 12 - salary).toFixed(2),
+                            "after": (after.after_salary / 12).toFixed(2),
+                        }, {
+                            "title": "年终奖",
+                            "pre": bonus.toFixed(2),
+                            "change": (after.after_bonus - bonus).toFixed(2),
+                            "after": after.after_bonus.toFixed(2),
+                        }, {
+                            "title": "年纳税额",
+                            "pre": (pre.tax_salary + pre.tax_bonus).toFixed(2),
+                            "change": (after.after_tax - pre.tax_salary - pre.tax_bonus).toFixed(2),
+                            "after": after.after_tax.toFixed(2)
+                        }]
+                    });
+
+                    //图形展示
+                    var dataForChart = [];
+                    dataForChart.push({
+                        name: "全年工资",
+                        value: after.after_salary
+                    });
+                    dataForChart.push({
+                        name: "年终奖",
+                        value: after.after_bonus
+                    });
+                    var Chart = echarts.init(document.getElementById('echart-area'));
+                    option = {
+                        title: {
+                            text: '最优筹划方案',
+                            x: 'center'
+                        },
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            left: 'left',
+                        },
+                        series: [
+                            {
+                                name: '类别',
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['50%', '60%'],
+                                data: dataForChart,
+                                itemStyle: {
+                                    emphasis: {
+                                        shadowBlur: 10,
+                                        shadowOffsetX: 0,
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    }
+                                }
+                            }
+                        ]
+                    };
+
+                    Chart.setOption(option);
+
+                }
             });
         });
-            
+
         //提取城市数据
-        function updatedata(){
-        	$.ajax({
-        		url:"<%=basePath%>region",
-        		type:"post",
-        		async:false,
-        		success: function(data) {
-        			console.log(data);
-        			$("#citydata").append(template("city-select", {data:data}));
-        		},
-        		error: function(data){
-        			alert("error");
-        		}
-        	})
+        function updatedata() {
+            $.ajax({
+                url: "<%=basePath%>region",
+                type: "post",
+                async: false,
+                success: function (data) {
+                    console.log(data);
+                    $("#citydata").append(template("city-select", { data: data }));
+                },
+                error: function (data) {
+                    alert("error");
+                }
+            })
         }
-        
+
         updatedata();
+
+
     </script>
 </body>
+
 </html>

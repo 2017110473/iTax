@@ -1,27 +1,6 @@
 /*-----------------------------------------------------------
 1  . Share use
 -------------------------------------------------------------*/
-.aboutimg img{
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -9;
-    margin-top: 100px;
-    margin-right: 130px;
-    width: 30%;
-  }
-  
-  .aboutimg h2{
-    margin-top: 130px;
-    margin-bottom: 20px;
-    font-size: 3.5em;
-  } 
-
-  .side-img img {
-    position: absolute;
-    left: -20px;
-    z-index: -9;
-  }
 
   .inputs {
     padding: 50px 0px;
