@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `itax` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `itax`;
+-- MySQL dump 10.13  Distrib 5.6.10, for Win64 (x86_64)
 --
 -- Host: localhost    Database: itax
 -- ------------------------------------------------------
--- Server version	5.7.11-log
+-- Server version	5.6.10
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,21 +25,21 @@ DROP TABLE IF EXISTS `social_insurance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `social_insurance` (
-  `地区` varchar(45) NOT NULL,
-  `养老` varchar(45) DEFAULT NULL,
-  `养老基数下限` varchar(45) DEFAULT NULL,
-  `养老基数上限` varchar(45) DEFAULT NULL,
-  `医疗` varchar(45) DEFAULT NULL,
-  `医疗基数下限` varchar(45) DEFAULT NULL,
-  `医疗基数上限` varchar(45) DEFAULT NULL,
-  `失业` varchar(45) DEFAULT NULL,
-  `失业基数下限` varchar(45) DEFAULT NULL,
-  `失业基数上限` varchar(45) DEFAULT NULL,
-  `住房公积金` varchar(45) DEFAULT NULL,
-  `住房公积金基数下限` varchar(45) DEFAULT NULL,
-  `住房公积金基数上限` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`地区`),
-  UNIQUE KEY `地区_UNIQUE` (`地区`)
+  `region` varchar(45) NOT NULL,
+  `pension` varchar(45) DEFAULT NULL,
+  `Lpension` varchar(45) DEFAULT NULL,
+  `Upension` varchar(45) DEFAULT NULL,
+  `med` varchar(45) DEFAULT NULL,
+  `Lmed` varchar(45) DEFAULT NULL,
+  `Umed` varchar(45) DEFAULT NULL,
+  `unemp` varchar(45) DEFAULT NULL,
+  `Lunemp` varchar(45) DEFAULT NULL,
+  `Uunemp` varchar(45) DEFAULT NULL,
+  `house` varchar(45) DEFAULT NULL,
+  `Lhouse` varchar(45) DEFAULT NULL,
+  `Uhouse` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`region`),
+  UNIQUE KEY `地区_UNIQUE` (`region`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -60,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-16  8:54:29
+-- Dump completed on 2020-04-22 20:40:36
