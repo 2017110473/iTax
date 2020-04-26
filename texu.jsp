@@ -41,7 +41,7 @@
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item ">
 							<!-- Nav Link -->
-							<a class="nav-link" data-scroll href="../index.html">主页</a>
+							<a class="nav-link" data-scroll href="../index.jsp">主页</a>
 						</li>
 						<li class="nav-item dropdown active">
 							<!-- Nav Link -->
@@ -49,19 +49,19 @@
 								aria-haspopup="true" aria-expanded="false">个税计算</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<!-- Lang Dropdown Choice -->
-								<a class="dropdown-item" data-scroll href="gongzi.html">工资薪金 </a>
+								<a class="dropdown-item" data-scroll href="gongzi.jsp">工资薪金 </a>
 								<!-- Lang Dropdown Choice -->
-								<a class="dropdown-item" data-scroll href="nianzhongjiang.html">年终奖 </a>
+								<a class="dropdown-item" data-scroll href="nianzhongjiang.jsp">年终奖 </a>
 								<!-- Lang Dropdown Choice -->
 								<a class="dropdown-item" data-scroll href="laowu.html">劳务报酬 </a>
 								<!-- Lang Dropdown Choice -->
-								<a class="dropdown-item" data-scroll href="gaochou.html">稿酬所得 </a>
+								<a class="dropdown-item" data-scroll href="gaochou.jsp">稿酬所得 </a>
 								<!-- Lang Dropdown Choice -->
-								<a class="dropdown-item" data-scroll href="texu.html">特许使用 </a>
+								<a class="dropdown-item" data-scroll href="texu.jsp">特许使用 </a>
 								<!-- Lang Dropdown Choice -->
-								<a class="dropdown-item" data-scroll href="jingying.html">经营所得 </a>
+								<a class="dropdown-item" data-scroll href="jingying.jsp">经营所得 </a>
 								<!-- Lang Dropdown Choice -->
-								<a class="dropdown-item" data-scroll href="qita.html">其他所得 </a>
+								<a class="dropdown-item" data-scroll href="qita.jsp">其他所得 </a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -70,8 +70,8 @@
 								aria-haspopup="true" aria-expanded="false">个税对比</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<!-- Dropdown Choice -->
-								<a class="dropdown-item" data-scroll href="../comparison/salary.html">薪资对比 </a>
-								<a class="dropdown-item" data-scroll href="../comparison/final.html">汇算对比 </a>
+								<a class="dropdown-item" data-scroll href="../comparison/salary.jsp">薪资对比 </a>
+								<a class="dropdown-item" data-scroll href="../comparison/final.jsp">汇算对比 </a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -79,8 +79,8 @@
 								aria-haspopup="true" aria-expanded="false">个税优化</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<!-- Dropdown Choice -->
-								<a class="dropdown-item" data-scroll href="../optimizing/forsalary.html">薪资优化 </a>
-								<a class="dropdown-item" data-scroll href="../optimizing/forhome">家庭优化 </a>
+								<a class="dropdown-item" data-scroll href="../optimizing/forsalary.jsp">薪资优化 </a>
+								<a class="dropdown-item" data-scroll href="../optimizing/forhome.jsp">家庭优化 </a>
 							</div>
 						</li>
 					</ul>
@@ -231,7 +231,7 @@
 
 
 	<!-- FOOTER SECTION -->
-	<footer style="margin-top: 50px;">
+	<footer style="margin-top: 50px; ">
 		<div class=" container">
 			<div class="row">
 				<div class="col-12">
