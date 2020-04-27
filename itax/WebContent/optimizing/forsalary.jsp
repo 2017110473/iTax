@@ -99,7 +99,6 @@
             <!-- Top Title Info -->
             <p>同等税前收入下，如何分配月工资和年终奖纳税额最少？
                 <br />
-                <br />
             </p>
         </div>
     </div>
@@ -408,11 +407,9 @@
                                     layer.msg("请选择省会城市！");
                                 }
                                 layer.msg("请选择比例与基数！");
-                            } else if (parseFloat(ins.pensionRate) < 0 || parseFloat(ins.pensionBase) < 0 || parseFloat(ins.medRate) < 0 || parseFloat(ins.medBase) < 0 ||
-                                parseFloat(ins.unempRate) < 0 || parseFloat(ins.unempRate) < 0 || parseFloat(ins.houseRate) < 0 || parseFloat(ins.houseBase) < 0) {
-                                layer.msg("请填写正确的数据！");
-                            } else {
-
+                            } else if (parseFloat(ins.pensionRate) >= 0 && parseFloat(ins.pensionBase) >= 0 && parseFloat(ins.medRate) >= 0 && parseFloat(ins.medBase) >= 0 &&
+                                parseFloat(ins.unempRate) >= 0 && parseFloat(ins.unempRate) >= 0 && parseFloat(ins.houseRate) >= 0 || parseFloat(ins.houseBase) >= 0) {
+                                
                                 var insurance = parseFloat(ins.pensionRate) * parseFloat(ins.pensionBase)
                                     + parseFloat(ins.medRate) * parseFloat(ins.medBase)
                                     + parseFloat(ins.unempRate) * parseFloat(ins.unempBase)
@@ -421,6 +418,8 @@
                                     "socialIns": Math.round(insurance) / 100,
                                 });
                                 layer.closeAll();
+                            } else {
+                            	layer.msg("请填写正确的数据！");
                             }
                         }
                         , btn2: function () {
@@ -438,6 +437,7 @@
                                 "unempBase": "",
                                 "houseBase": "",
                             });
+                            return false;
                         }
                     });
                 }
@@ -456,9 +456,7 @@
                 var pre, after;
                 if (info.salary == "" || info.bonus == "" || info.socialIns == "" || info.special == "") {
                     layer.msg("请完成信息填写！");
-                } else if (parseFloat(info.salary) < 0 || parseFloat(info.bonus) < 0 || parseFloat(info.socialIns) < 0 || parseFloat(info.special) < 0) {
-                    layer.msg("请填写正确信息！");
-                } else {
+                } else if (parseFloat(info.salary) >= 0 && parseFloat(info.bonus) >= 0 && parseFloat(info.socialIns) >= 0 && parseFloat(info.special) >= 0) {
                     var salary = parseFloat(info.salary), bonus = parseFloat(info.bonus), socialIns = parseFloat(info.socialIns), special = parseFloat(info.special);
                     //原方案计算
                     $.ajax({
@@ -569,8 +567,12 @@
                     };
 
                     Chart.setOption(option);
-
+                   
+                } else {
+                	 layer.msg("请填写正确信息！");
+                	 return false;
                 }
+               
             });
         });
 

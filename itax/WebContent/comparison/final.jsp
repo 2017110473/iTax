@@ -99,7 +99,6 @@
       <!-- Top Title Info -->
       <p>年度清算与预交纳税差多少？
         <br />
-        <br />
       </p>
     </div>
   </div>
@@ -163,7 +162,7 @@
                     <div class="input-item layui-form-item">
                       <label class="input-label layui-form-label">劳务报酬</label>
                       <div class="layui-input-block">
-                        <input type="number" name="labour" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="number" name="labour" placeholder="按年填写" autocomplete="off" class="layui-input">
                         <label class="yuan-label">元</label>
                       </div>
                       <label class="input-label layui-form-label"
@@ -172,7 +171,7 @@
                     <div class="input-item layui-form-item">
                       <label class="input-label layui-form-label">稿酬所得</label>
                       <div class="layui-input-block">
-                        <input type="number" name="author" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="number" name="author" placeholder="按年填写" autocomplete="off" class="layui-input">
                         <label class="yuan-label">元</label>
                       </div>
                       <label class="input-label layui-form-label"
@@ -181,7 +180,7 @@
                     <div class="input-item layui-form-item">
                       <label class="input-label layui-form-label">特许使用</label>
                       <div class="layui-input-block">
-                        <input type="number" name="right" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="number" name="right" placeholder="按年填写" autocomplete="off" class="layui-input">
                         <label class="yuan-label">元</label>
                       </div>
                       <label class="input-label layui-form-label"
@@ -201,7 +200,7 @@
     </div>
 
     <!--计算结果-->
-    <div class="container">
+    <div class="container" id="show">
       <div class="row">
         <div class="col-12 col-sm-12 col-lg-3 input-txt">
           <h2 style="margin: 20px 0px;">分类计算：</h2>
@@ -395,7 +394,7 @@
       var form = layui.form, layer = layui.layer, table = layui.table;
       form.render();
       $("#hidden-area").hide(); //隐藏
-
+      $("#show").hide(); //隐藏
       table.render({
         elem: '#classified' //分类计算表格
         , cols: [[ //标题栏
@@ -518,10 +517,8 @@
         if (salary_info.sumsalary == "" || salary_info.insurance == "" || salary_info.special == "" ||
           other_info.author == "" || other_info.right == "" || other_info.labour == "") {
           layer.msg("请完成必填信息填写！");
-        } else if (parseFloat(salary_info.sumsalary) < 0 || parseFloat(salary_info.insurance) < 0 || parseFloat(salary_info.special) < 0 ||
-          parseFloat(other_info.author) < 0 || parseFloat(other_info.right) < 0 || parseFloat(other_info.labour) < 0) {
-          layer.msg("请完成填写正确信息！");
-        } else {
+        } else if (parseFloat(salary_info.sumsalary) >= 0 && parseFloat(salary_info.insurance) >= 0 && parseFloat(salary_info.special) >= 0 &&
+          parseFloat(other_info.author) >= 0 && parseFloat(other_info.right) >= 0 && parseFloat(other_info.labour) >= 0) {
           //计算稿酬
           if (other_info.author != "" && other_info.author != undefined) {
             $.ajax({
@@ -595,6 +592,9 @@
               alert("error");
             }
           })
+          
+          
+          $("#show").show(); //隐藏
 
           table.render({
             elem: '#classified'
@@ -656,7 +656,7 @@
               , { field: 'tax', title: '适用税率', align: 'center' }
               , { field: 'tax_value', title: '纳税额', align: 'center' }
               , { field: 'aftersum', title: '税后年收入', align: 'center' }
-              , { field: 'difference', title: '与分类计算相比纳税额差额', align: 'center', style: 'background:#c7e6ff; color:#000;weight:bolder;' }
+              , { field: 'difference', title: '两方法纳税额差额', align: 'center', style: 'background:#c7e6ff; color:#000;weight:bolder;' }
             ]]
             , data: [{
               "presum": (parseFloat(salary_info.sumsalary) + parseFloat(other_info.labour) + parseFloat(other_info.author) + parseFloat(other_info.right)).toFixed(2),
@@ -664,10 +664,14 @@
               "tax": sum.tax.toFixed(2),
               "tax_value": sum.tax_value.toFixed(2),
               "aftersum": (parseFloat(salary_info.sumsalary) + parseFloat(other_info.labour) + parseFloat(other_info.author) + parseFloat(other_info.right) - sum.tax_value - parseFloat(salary_info.insurance)).toFixed(2),
-              "difference": (sum.tax_value - salary.tax_value + labour.tax_value + author.tax_value + right.tax_value).toFixed(2),
+              "difference": (sum.tax_value - salary.tax_value - labour.tax_value - author.tax_value - right.tax_value).toFixed(2),
             }]
           });
         }
+        else {
+        layer.msg("请完成填写正确信息！");
+        return false;
+        } 
       });
 
     });

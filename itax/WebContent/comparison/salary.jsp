@@ -106,7 +106,6 @@
       <!-- Top Title Info -->
       <p>多种薪资方案怎么选？
         <br />
-        <br />
       </p>
     </div>
   </div>
@@ -219,7 +218,7 @@
     </div>
 
     <!--对比结果-->
-    <div class="container">
+    <div class="container" id="show">
       <div class="row">
         <div class="col-12 col-sm-12 col-lg-3 input-txt">
           <h2>对比结果：</h2>
@@ -421,7 +420,7 @@
       form.render(); //表单渲染
       $('#hidden-area-1').hide(); //隐藏弹出框
       $('#hidden-area-2').hide();
-
+      $('#show').hide();
       //渲染表格
       table.render({
         elem: '#result'
@@ -578,7 +577,7 @@
             , shade: 0.3
             , id: 'LAY_insurance' //防止重复弹出
             , content: $("#hidden-area-1")
-            , btn: ['确定']
+            , btn: ['确定','重置']
             , btnAlign: 'c' //按钮居中
             , yes: function () {
               var ins = form.val('ins1');
@@ -590,12 +589,9 @@
                 }
                 layer.msg("请选择比例与基数！");
                 //确保不存在负值
-              } else if (parseFloat(ins.pensionRate) < 0 || parseFloat(ins.pensionBase) < 0 || parseFloat(ins.medRate) < 0 || parseFloat(ins.medBase) < 0 ||
-                parseFloat(ins.unempRate) < 0 || parseFloat(ins.unempRate) < 0 || parseFloat(ins.houseRate) < 0 || parseFloat(ins.houseBase) < 0) {
-                layer.msg("请填写正确的数据！");
-              }
-              else { //进行计算
-                var insurance = parseFloat(ins.pensionRate) * parseFloat(ins.pensionBase)
+              } else if (parseFloat(ins.pensionRate) >= 0 && parseFloat(ins.pensionBase) >= 0 && parseFloat(ins.medRate) >= 0 && parseFloat(ins.medBase) >= 0 &&
+                parseFloat(ins.unempRate) >= 0 && parseFloat(ins.unempRate) >= 0 && parseFloat(ins.houseRate) >= 0 && parseFloat(ins.houseBase) >= 0) {
+            	  var insurance = parseFloat(ins.pensionRate) * parseFloat(ins.pensionBase)
                   + parseFloat(ins.medRate) * parseFloat(ins.medBase)
                   + parseFloat(ins.unempRate) * parseFloat(ins.unempBase)
                   + parseFloat(ins.houseRate) * parseFloat(ins.houseBase);
@@ -603,6 +599,9 @@
                   "insurance1": Math.round(insurance) / 100,
                 });
                 layer.closeAll();
+              }
+              else { 
+            	  layer.msg("请填写正确的数据！");
               }
             }
             , btn2: function () {
@@ -623,6 +622,7 @@
               return false;
             }
           });
+          
         }, insurance2: function (othis) {
           layer.open({
             type: 1
@@ -641,11 +641,9 @@
                   layer.msg("请选择省会城市！");
                 }
                 layer.msg("请选择比例与基数！");
-              } else if (parseFloat(ins.pensionRate) < 0 || parseFloat(ins.pensionBase) < 0 || parseFloat(ins.medRate) < 0 || parseFloat(ins.medBase) < 0 ||
-                parseFloat(ins.unempRate) < 0 || parseFloat(ins.unempRate) < 0 || parseFloat(ins.houseRate) < 0 || parseFloat(ins.houseBase) < 0) {
-                layer.msg("请填写正确的数据！");
-              } else {
-                var insurance = parseFloat(ins.pensionRate) * parseFloat(ins.pensionBase)
+              } else if (parseFloat(ins.pensionRate) >= 0 && parseFloat(ins.pensionBase) >= 0 && parseFloat(ins.medRate) >= 0 && parseFloat(ins.medBase) >= 0 &&
+                parseFloat(ins.unempRate) >= 0 && parseFloat(ins.unempRate) >= 0 && parseFloat(ins.houseRate) >= 0 && parseFloat(ins.houseBase) >= 0) {
+            	  var insurance = parseFloat(ins.pensionRate) * parseFloat(ins.pensionBase)
                   + parseFloat(ins.medRate) * parseFloat(ins.medBase)
                   + parseFloat(ins.unempRate) * parseFloat(ins.unempBase)
                   + parseFloat(ins.houseRate) * parseFloat(ins.houseBase);
@@ -653,6 +651,9 @@
                   "insurance2": Math.round(insurance) / 100,
                 });
                 layer.closeAll();
+              }
+              else { 
+            	  layer.msg("请填写正确的数据！");
               }
             }
             , btn2: function () {
@@ -670,6 +671,7 @@
                 "unempBase": "",
                 "houseBase": "",
               });
+              return false;
             }
           });
         }
@@ -704,11 +706,8 @@
         if (stg1.salary1 == "" || stg1.bonus1 == "" || stg1.insurance1 == "" || stg1.special1 == "" ||
           stg2.salary2 == "" || stg2.bonus2 == "" || stg2.insurance2 == "" || stg2.special2 == "") {
           layer.msg("请完成必填信息填写！");//确保数据完整性
-        } else if (parseFloat(stg1.salary1) < 0 || parseFloat(stg1.bonus1) < 0 || parseFloat(stg1.insurance1) < 0 || parseFloat(stg1.special1) < 0 ||
-          parseFloat(stg2.salary2) < 0 || parseFloat(stg2.bonus2) < 0 || parseFloat(stg2.insurance2) < 0 || parseFloat(stg2.special2) < 0) {
-          layer.msg("请填写正确数据！");//确保数据正确不为负值
-        }
-        else {
+        } else if (parseFloat(stg1.salary1) >= 0 && parseFloat(stg1.bonus1) >= 0 && parseFloat(stg1.insurance1) >= 0 && parseFloat(stg1.special1) >= 0 &&
+          parseFloat(stg2.salary2) >= 0 && parseFloat(stg2.bonus2) >= 0 && parseFloat(stg2.insurance2) >= 0 && parseFloat(stg2.special2) >= 0) {
           //进行计算
           $.ajax({
             url: "<%=basePath%>yeartax",
@@ -751,6 +750,7 @@
 
           var tax1 = stg1.tax_salary + stg1.tax_bonus, tax2 = stg2.tax_salary + stg2.tax_bonus;
 
+          $('#show').show();
           //数据展示
           table.render({
             elem: '#result'
@@ -782,6 +782,10 @@
               "best": form.val('strategy1').insurance1 > form.val('strategy2').insurance2 ? "方案一" : "方案二",
             }]
           });
+        }
+        else {
+            layer.msg("请填写正确数据！");//确保数据正确不为负值
+            return false;
         }
       });
     });

@@ -84,10 +84,6 @@
 								<a class="dropdown-item" data-scroll href="../optimizing/forhome.jsp">家庭优化 </a>
 							</div>
 						</li>
-						<li class="nav-item">
-							<!-- Nav Link -->
-							<a class="nav-link" data-scroll href="#contact-us">其他</a>
-						</li>
 					</ul>
 				</div>
 			</nav>
@@ -101,9 +97,11 @@
 			<!-- TOP Title -->
 			<h2>劳务报酬</h2>
 			<!-- TOP Title Info -->
-
-			<br />
-			<br />
+			<p>
+			  应纳税所得额 = 稿酬所得(不超过4000元) - 800元<br />
+                        应纳税所得额 = 稿酬所得(超过4000元) * (1-20%)  <br />       
+                        纳税额 = 应纳税所得额 * 适用税率 - 速算扣除数
+            </p>
 		</div>
 	</div>
 	<!--  SECTION -->
@@ -137,7 +135,7 @@
 								<label class="layui-form-label">减除费用：</label>
 								<div class="layui-input-block">
 									<input type="text" name="subduction"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -153,7 +151,7 @@
 								<label class="layui-form-label">适用税率：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax_rate" autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">%</span>
 								</div>
 							</div>
@@ -161,7 +159,7 @@
 								<label class="layui-form-label">速算扣除数：</label>
 								<div class="layui-input-block">
 									<input type="text" name="deduction"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -169,7 +167,7 @@
 								<label class="layui-form-label">预扣预缴应纳税额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -177,7 +175,7 @@
 								<label class="layui-form-label">税后收入：</label>
 								<div class="layui-input-block">
 									<input type="text" name="after_tax" autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -201,7 +199,7 @@
 								<label class="layui-form-label">减除费用：</label>
 								<div class="layui-input-block">
 									<input type="text" name="subduction2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -209,7 +207,7 @@
 								<label class="layui-form-label">预扣预缴应纳税所得额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="taxable_income2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -217,7 +215,7 @@
 								<label class="layui-form-label">适用税率：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax_rate2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">%</span>
 								</div>
 							</div>
@@ -225,7 +223,7 @@
 								<label class="layui-form-label">速算扣除数：</label>
 								<div class="layui-input-block">
 									<input type="text" name="deduction2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -233,7 +231,7 @@
 								<label class="layui-form-label">预扣预缴应纳税额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -241,7 +239,7 @@
 								<label class="layui-form-label">税前收入：</label>
 								<div class="layui-input-block">
 									<input type="text" name="pre_tax2" autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>

@@ -97,16 +97,18 @@
 			<!-- TOP Title -->
 			<h2>特许权使用费所得</h2>
 			<!-- TOP Title Info -->
-
-			<br />
-			<br />
+			<p>
+			  应纳税所得额 = 稿酬所得(不超过4000元) - 800元<br />
+                        应纳税所得额 = 稿酬所得(超过4000元) * (1-20%)  <br />       
+                        纳税额 = 应纳税所得额 * 20%
+            </p>
 		</div>
 	</div>
 	<!--  SECTION -->
 	<section id="input" class="inputs">
 
 		<div class="side-img">
-			<img src="../images/aside3.svg" style="height:850px" alt="">
+			<img src="../images/aside3.svg" style="height:750px" alt="">
 		</div>
 		<div class="container">
 			<div class="layui-tab">
@@ -133,7 +135,7 @@
 								<label class="layui-form-label">减除费用：</label>
 								<div class="layui-input-block">
 									<input type="text" name="subduction"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -141,7 +143,7 @@
 								<label class="layui-form-label">预扣预缴应纳税所得额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="taxable_income"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -149,7 +151,7 @@
 								<label class="layui-form-label">适用税率：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax_rate"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">%</span>
 								</div>
 							</div>
@@ -157,7 +159,7 @@
 								<label class="layui-form-label">预扣预缴应纳税额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax" autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -165,7 +167,7 @@
 								<label class="layui-form-label">税后收入：</label>
 								<div class="layui-input-block">
 									<input type="text" name="after_tax" autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -197,7 +199,7 @@
 								<label class="layui-form-label">预扣预缴应纳税所得额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="taxable_income2" autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -205,7 +207,7 @@
 								<label class="layui-form-label">适用税率：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax_rate2" autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">%</span>
 								</div>
 							</div>
@@ -213,7 +215,7 @@
 								<label class="layui-form-label">预扣预缴应纳税额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -221,7 +223,7 @@
 								<label class="layui-form-label">税前收入：</label>
 								<div class="layui-input-block">
 									<input type="text" name="pre_tax2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>

@@ -85,10 +85,6 @@
 								<a class="dropdown-item" data-scroll href="../optimizing/forhome.jsp">家庭优化 </a>
 							</div>
 						</li>
-						<li class="nav-item">
-							<!-- Nav Link -->
-							<a class="nav-link" data-scroll href="#contact-us">其他</a>
-						</li>
 					</ul>
 				</div>
 			</nav>
@@ -102,7 +98,7 @@
 			<!-- TOP Title -->
 			<h2>年终奖</h2>
 			<!-- TOP Title Info -->
-
+			<p>应纳税额 = 税前 * 税率 - 速算扣除数</p>
 			<br />
 			<br />
 		</div>
@@ -138,7 +134,7 @@
 								<label class="layui-form-label">应纳税所得额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="taxable_income"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -146,7 +142,7 @@
 								<label class="layui-form-label">平均每月：</label>
 								<div class="layui-input-block">
 									<input type="text" name="avg"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -154,7 +150,7 @@
 								<label class="layui-form-label">适用税率：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax_rate"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">%</span>
 								</div>
 							</div>
@@ -162,7 +158,7 @@
 								<label class="layui-form-label">速算扣除数：</label>
 								<div class="layui-input-block">
 									<input type="text" name="deduction" autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -170,7 +166,7 @@
 								<label class="layui-form-label">应纳税额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax" autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -178,7 +174,7 @@
 								<label class="layui-form-label">税后收入：</label>
 								<div class="layui-input-block">
 									<input type="text" name="after_tax"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -202,7 +198,7 @@
 								<label class="layui-form-label">应纳税所得额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="taxable_income2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -210,7 +206,7 @@
 								<label class="layui-form-label">平均每月：</label>
 								<div class="layui-input-block">
 									<input type="text" name="avg2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -218,7 +214,7 @@
 								<label class="layui-form-label">适用税率：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax_rate2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">%</span>
 								</div>
 							</div>
@@ -226,7 +222,7 @@
 								<label class="layui-form-label">速算扣除数：</label>
 								<div class="layui-input-block">
 									<input type="text" name="deduction2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -234,7 +230,7 @@
 								<label class="layui-form-label">应纳税额：</label>
 								<div class="layui-input-block">
 									<input type="text" name="tax2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>
@@ -242,7 +238,7 @@
 								<label class="layui-form-label">税前收入：</label>
 								<div class="layui-input-block">
 									<input type="text" name="pre_tax2"  autocomplete="off"
-										class="layui-input">
+										class="layui-input" disabled="">
 									<span class="unit">元</span>
 								</div>
 							</div>

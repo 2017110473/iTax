@@ -106,9 +106,11 @@
 
       <!-- TOP Title -->
       <h2>工资薪金</h2>
-      <!-- TOP Title Info -->
-      <br />
-      <br />
+      <p>纳税额 = （税前收入 - 五险一金 - 专项扣除 - 起征点）* 税率
+           <br />     
+                 税后工资 = 税前工资 - 五险一金个人缴纳额 - 纳税额    
+                <br />
+            </p>
     </div>
   </div>
   <!--  SECTION -->
@@ -189,7 +191,7 @@
                 <label class="layui-form-label" style="margin-left: -100px; font-size: 15px;">基数</label>
                 <label class="layui-form-label" style="margin-left: 93px; ">速算扣除数：</label>
                 <div class="layui-input-block" style="width: 200px; float: left;margin-left: 10px;">
-                  <input type="text" name="deduction" autocomplete="off" class="layui-input">
+                  <input type="text" name="deduction" autocomplete="off" class="layui-input" disabled="">
                   <span class="unit">元</span>
                 </div>
 
@@ -258,6 +260,7 @@
                   <input type="submit" id="changeParameter" data-type="auto" value="更新参数"
                     style="background-color: #FFFFFF; color: #6C757D; border: 1px solid #ededef;border-radius: 4px; font-size: 13px; width: 80px;padding:0 0 ;margin:8px 0;"
                     class="layui-btn layui-btn-primary layui-btn-xs">
+                    
                 </div>
               </div>
             </form>
@@ -324,20 +327,19 @@
       //提交信息开始计算
       form.on('submit(compute)', function () {
         var info = form.val('info');
-        if (parseFloat(info.salary) < 0 || parseFloat(info.special) < 0) {
-          layer.msg("请填写正确的数据");
-          return false;
+        if (parseFloat(info.salary) >= 0 && parseFloat(info.special) >= 0) {
+        if (parseFloat(info.pensionRate) >= 0 && parseFloat(info.pensionBase) >=0 &&
+          parseFloat(info.medRate) >= 0 && parseFloat(info.medBase) >= 0 &&
+          parseFloat(info.unempRate) >= 0 && parseFloat(info.unempBase) >= 0 &&
+          parseFloat(info.houseRate) >= 0 && parseFloat(info.houseBase) >= 0) {
+            	computeIns();
+            	computeTax();
+          		return false;
+       	 }
+        }else {
+        	layer.msg("请填写正确的数据");
+            return false;
         }
-        if (parseFloat(info.pensionRate) < 0 || parseFloat(info.pensionBase) < 0 ||
-          parseFloat(info.medRate) < 0 || parseFloat(info.medBase) < 0 ||
-          parseFloat(info.unempRate) < 0 || parseFloat(info.unempBase) < 0 ||
-          parseFloat(info.houseRate) < 0 || parseFloat(info.houseBase) < 0) {
-          layer.msg("请填写正确的数据");
-          return false;
-        }
-        computeIns();
-        computeTax();
-        return false;
       });
 
       //参数更新函数
