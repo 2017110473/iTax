@@ -245,18 +245,18 @@
     <!--弹出框-->
     <div class="in-box" id="hidden-area" style="padding: 10px;">
 
-        <form class="layui-form" action="" lay-filter="example">
+        <form class="layui-form" action="">
             <div class="select-item layui-form-item">
                 <label class="input-label layui-form-label">选择城市</label>
                 <div class="layui-input-block">
-                    <select name="kinds" lay-filter="KindofIncome">
+                    <select name="kinds" lay-filter="KindofIncome" lay-filter="city">
                         <option value="0" selected="">上海</option>
                         <option value="1">西安</option>
                     </select>
                 </div>
             </div>
         </form>
-        <form class=" layui-form" action="" lay-filter="example">
+        <form class="layui-form" action="" lay-filter="example">
             <div class="input-item layui-form-item">
                 <label class="input-label layui-form-label" style="font-weight:bolder;">五险一金:</label>
                 <label class="layui-form-label" style="margin-left:-30px;">比例</label>
@@ -335,6 +335,9 @@
             var form = layui.form;
             form.render();
             $("#hidden-area").hide();
+
+            form.on('select', function (data) {
+            });
         });
 
         layui.use('layer', function () {
@@ -363,6 +366,7 @@
                 var othis = $(this), method = othis.data('method');
                 active[method] ? active[method].call(this, othis) : '';
             });
+
         });
     </script>
 
