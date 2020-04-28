@@ -1,13 +1,15 @@
 # iTax-个税小帮手
 
 个税小帮手（iTax）是一个集个税计算、对比、优化于一体的个税计算器。
+组名：哇哦
+组员：张秋菊、董嘉懿
 
 
 ## 目录结构描述
 
-│  index.html    // 主页html版本
-│  itax.mpp      // 项目管理进程图
-│  iTax.sql      //数据库脚本
+│  index.html    
+│  itax.mpp     
+│  iTax.sql     
 │  README.md
 |  ...
 │              
@@ -32,7 +34,7 @@
 │      
 ├─images
 │     ...
-│      
+│    
 ├─itax    
 │  │                  
 │  ├─src  
@@ -104,8 +106,6 @@
 │      │      
 │      └─WEB-INF
 │          └─lib
-│                  fastjson-1.2.62.jar
-│                  mysql-connector-java-5.1.45-bin.jar
 │                  
 ├─js
 │     ...
@@ -118,6 +118,7 @@
         forsalary.html
         
 
+// itax 文件夹中为最终完整内容呈现
 
 
 ## V1.0.0 版本内容更新
