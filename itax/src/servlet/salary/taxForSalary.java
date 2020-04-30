@@ -46,9 +46,10 @@ public class taxForSalary extends HttpServlet{
 			double social_ins = Double.parseDouble(request.getParameter("socialIns"));//社保
 			double special = Double.parseDouble(request.getParameter("special")); //专项
 			double start = Double.parseDouble(request.getParameter("start")); //起征点
+			double month = Double.parseDouble(request.getParameter("month")); //期数
 			
 			//应缴税所得额
-			double taxable_income = pre_salary - social_ins - special -  start;
+			double taxable_income = (pre_salary - social_ins - special -  start) * month;
 			taxable_income = taxable_income>0?taxable_income:0;
 			//税率、速算扣除数、界限
 			Double[] tax = new Double[] {0.0, 0.03, 0.10, 0.20, 0.25, 0.30, 0.35, 0.45}; 

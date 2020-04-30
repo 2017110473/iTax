@@ -582,6 +582,7 @@
               socialIns: salary_info.insurance,
               special: salary_info.special,
               start: 5000 * 12,
+              month:1,
             },
             async: false,
             success: function (data) {
